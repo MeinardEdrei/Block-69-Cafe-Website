@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&family=Roboto:wght@400;500;700&display=swap');
+
+.top-button-container::before {
+    content: '';
+    display: block;
+    height: 92vh;
+    pointer-events: none;
+}
+.top-button-container {
+    --offset: 100px; 
+    
+    margin-top: calc(385vh + var(--offset));
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    right: 1px;
+}
+.top-button {
+    z-index: 90;
+
+    place-self: end;
+    position: sticky;
+    bottom: 20px;
+    margin-right: 20px;
+
+    text-decoration: none;
+    padding: 10px;
+    font-family: sans-serif;
+    color: white;
+    background: black;
+    border: 1px solid #fff;
+    border-radius: 100px;
+    white-space: nowrap;
+}
+
+.View-Menu1 {
+    display: flex;
+    position: absolute;
+    text-decoration: none;
+    top: 8.5rem;
+    padding: 5px 17.2px 5px 21px;
+    
+    font-family: Crimson Text;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    background-color: rgb(255, 255, 255);;
+
+    border-radius: 5px;
+    border: 0;
+}
+
+.View-Menu2 {
+    position: absolute;
+    top: 170px;
+    padding: 15px;
+    margin: 0;
+    border: 0;
+    border-radius: 20px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #362706;
+}
+.View-Menu3 {
+    position: absolute;
+    top: 170px;
+    padding: 15px;
+    margin: 0;
+    border: 0;
+    border-radius: 20px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+}
+.View-Menu4 {
+    position: absolute;
+    top: 200px;
+    padding: 15px;
+    margin: 0;
+    border: 0;
+    border-radius: 20px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    background-color: white;
+    color: #362706;
+}
+.View-Menu5 {
+    position: absolute;
+    top: 210px;
+    padding: 15px;
+    margin: 0;
+    border: 0;
+    border-radius: 20px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+}
+
+.View-Menu1:hover,
+.View-Menu2:hover, 
+.View-Menu3:hover,
+.View-Menu4:hover,
+.View-Menu5:hover {
+    filter: brightness(85%);
+    cursor: pointer;
+    transition: .5s ease;
+}

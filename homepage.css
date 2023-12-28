@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300&family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Source+Serif+4:opsz@8..60&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body {
+    scroll-behavior: smooth;
+    scroll-snap-stop: normal;
+}
+
+.Body-Container {
+    height: 100vh;
+    position: relative;
+    scroll-snap-type: y mandatory;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin: 0;
+}
+section {
+    scroll-snap-align: start;
+    scroll-behavior: smooth;
+}
+
+h1 {
+    font-size: 70px;
+    color: white;
+    font-family: Yeseva One;
+    font-weight: lighter;
+    text-shadow: 1px 2px 4px rgb(31, 31, 31);
+    /* -webkit-text-stroke: 1px black; */
+}
+.Caption1, .Caption2, .Caption3, .Caption4 {
+    font-family: Arial;
+    padding-top: 20px;
+    line-height: 1.5;
+}
+
+.Caption-Title {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+/* First Section */
+#First-Section {
+    height: 100vh;
+}
+#First-Section::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    height: 700px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    background-color: black;
+    background: url('Background Images/First-Section-Background.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(90%) !important;
+    filter: contrast(100%);
+}
+/* .First-Section-Background {
+    height: 100vh;
+    width: 100%;
+    object-fit: cover; 
+    margin-bottom: -4px;
+    filter: brightness(90%); 
+} */
+.First-Section-Quote {
+    display: flex;
+    position: absolute;
+    top: 235px;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.First-Section-Caption {
+    font-family: Source Serif 4;
+    font-size: 22px;
+    color: #ffffff;
+    text-shadow: 100px black;
+    -webkit-text-stroke: .3px black;
+}
+/* #down-arrow {
+    display: flex;
+    width: 100%;
+    position: absolute;
+    top: 300px;
+    width: 60px;
+    cursor: default;
+} */
+
+/* Second Section */
+#Second-Section {
+    height: 100vh;
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.Second-Section-Background {
+    display: none;
+    height: 100vh;
+    width: 100%;
+    object-fit: cover; 
+    filter: brightness(80%);
+    mix-blend-mode: lighten;
+    margin-bottom: -4px;
+}
+.Second-Section-Image {
+    /* position: absolute;
+    object-fit: cover;
+    height: 500px;
+    width: 650px;
+    top: 705px;
+    right: 0px; */
+    grid-column: 2fr;
+    position: relative;
+    right: -10px;
+    top: 67px;
+    height: 500px;
+    width: 670px;
+    
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    /* border: 3px solid black; */
+    border-right: none;
+
+    image-rendering: pixelated;
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    filter: contrast(100%);
+    filter: brightness(115%);
+    object-fit: cover;
+}
+.Second-Section-Shape {
+    z-index: 1;
+    position: relative;
+    height: 320px;
+    width: 530px;
+    background-color: black;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+
+    top: 175px;
+}
+.Second-Section-Content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    top: -290px;
+    left: 130px;
+}
+
+/* Third Section */
+.Third-Section {
+    height: 100vh;
+    background-color: #0C0D08;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+/* .Third-Section-Background {
+    z-index: -1;
+    height: 100vh;
+    width: 100%;
+    object-fit: cover; 
+    
+    filter: brightness(60%);
+} */
+.Third-Section-Image {
+    z-index: 1;
+    position: relative;
+    object-fit: cover;
+    height: 500px;
+    width: 700px;
+
+    top: 75px;
+    left: 0px;
+    
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    /* border:3px solid; */
+    border-color: white;
+
+    filter: contrast(110%);
+    filter: brightness(90%);
+}
+.Third-Section-Shape {
+    z-index: 1;
+    position: relative;
+    right: -145px;
+    top: 190px;
+
+    height: 300px;
+    width: 500px;
+    background-color: white;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+.Third-Section-Content {
+    z-index: 1;
+    position: relative;
+    color: black;
+    top: 230px;
+    right: 290px;
+    width: 500px;
+}
+
+/* Fourth Section */
+.Fourth-Section {
+    height: 100vh;
+}
+.Fourth-Section-Background {
+    z-index: -1;
+    height: 100vh;
+    width: 100%;
+    object-fit: cover; 
+    
+    filter: brightness(50%);
+}
+.Fourth-Section-Shape {
+    z-index: -1;
+    position: absolute;
+    left: 0px;
+    top: 2075px;
+    height: 350px;
+    width: 550px;
+
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    background-color: black;
+}
+/* .Fourth-Section-Title {
+    z-index: 1;
+    position: absolute;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+    color: black;
+    top: 1950px;
+    left: 392px;
+
+    border: none;
+
+    text-decoration: none;
+    text-align: center;
+}
+.Fourth-Section hr {
+    position: absolute;
+    margin-top: 120px;
+    margin-left: 100px;
+    width: 85%;
+} */
+.Fourth-Section-Content {
+    z-index: 1;
+    width: 350px;
+    position: absolute;
+    color: white;
+    top: 2120px;
+    left: 140px;
+}
+
+.Fifth-Section {
+    height: 100vh;
+    background-color: #0C0D08;
+}
+.Fifth-Section-Image {
+    z-index: 1;
+    position: absolute;
+    object-fit: cover;
+    height: 500px;
+    width: 700px;
+
+    top: 2633px;
+    left: 0px;
+    
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    /* border:3px solid; */
+    border-left: none;
+    border-color: white;
+
+    filter: contrast(110%);
+    filter: brightness(90%);
+}
+.Fifth-Section-Shape {
+    z-index: 1;
+    position: absolute;
+    height: 320px;
+    width: 500px;
+    right: 0px;
+    top: 2730px;
+
+    background-color: white;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+.Fifth-Section-Content {
+    z-index: 1;
+    width: 300px;
+    position: absolute;
+    color: black;
+    top: 2760px;
+    right: 130px;
+}
+
