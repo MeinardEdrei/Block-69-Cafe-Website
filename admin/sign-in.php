@@ -11,14 +11,19 @@ include './partials/header.php';
     <h1 h1>Sign in or create an account</h1>
     <div class="form-container">
       <p>*indicates required field</p>
-      <input type="text" name="username" placeholder="* Username">
-      <input type="text" name="password" placeholder="* Password">
-      <div class="chk"> <input id="KeepSession" type="checkbox"> Keep me signed in. <a href="#" style="color: Black">Details</a></div>
-      <a href="" class="forgot-info">Forgot your username?</a>
-      <a href="" class="forgot-info">Forgot your password?</a>
+      <input type="text" name="username" placeholder="* Username" required autocomplete="off">
+      <input type="text" name="password" placeholder="* Password" required autocomplete="off">
+      <a href="forgot-password.php" class="forgot-info">Forgot your password?</a>
       <input type="submit" name="submit" value="Sign in">
     </div>
   </div>
+  <div class="join-container">
+    <p style="font-size: 22px; font-weight: bold;">JOIN BLOCK 69 CAFE REWARDS</p>
+    <p style="font-size: 20px;">Join Block 69 Cafe Loyalty Cards to earn a free cup <br> of coffee of your choice in
+        your 10th payment.</p>
+        <a style="font-size: 18px; text-decoration: none; padding:1em; background-color: transparent; border: 1px solid black; color: black;" href="sign-up.php" id="Sign-up">Join now</a>
+  </div>
+  
 </form>
 
 <?php 

@@ -11,6 +11,15 @@
     line-height: 1.5;
 }
 
+#preloader{
+    background: white url(../Images/preloader.gif) no-repeat center;
+    background-size: 30%;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
 .content-edit{
     position: absolute;
 }
@@ -54,18 +63,18 @@
     width: 43em;
     text-align: center;
     color: black;
-    background-color: black;
+    background-color: white;
     padding: 1em;
-    border: 1px solid white;
+    border: 3px solid black;
 }
 
 .modal-content-add{
     width: 43em;
     text-align: center;
     color: black;
-    background-color: black;
+    background-color: white;
     padding: 1em;
-    border: 1px solid white;
+    border: 3px solid black;
 }
 
 .edit-content{
@@ -184,7 +193,7 @@
 }
 .modal-title, .modal-caption{
     padding: .5em;
-    color: white;
+    color: black;
     font-family: League Spartan;
     font-size: 18px;
     font-weight: bold;

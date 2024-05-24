@@ -157,7 +157,7 @@ function generatePopup(id, category) {
   let popupImage = items.toUpperCase();
   let popupHTML = "";
   
-  if(category === "espresso" || category === "brew" || category === "ncat" || category === "matcha" || category === "beverages") {
+  if(category === "espresso" || category === "brew" || category === "noncofeeandtea" || category === "matcha" || category === "beverages") {
       popupHTML = ` 
       <div class="popupImage">
         <img src="BLK/${popupImage}.png">

@@ -3,13 +3,24 @@
 
 session_start();
 include('partials/header.php'); 
+include_once './config/connect.php';
+include_once './config/functions.php';
+include_once './config/services-content-manage.php';
+
+$conn = get_connection();
+$user_data = check_login($conn);
+$user_type = check_usertype($conn);
+
+//fetching data
+$content = get_services_content($conn);
+$content_id = 0;
 
 ?>
+
 <link rel="stylesheet" href="css/services.css">
 
   <div class="landing-page"> 
     <video autoplay loop muted plays-inline class="outsideblk-video" src="videos/outsideblk.mp4"></video>
-    <!-- <img src="Background Images/First-Section-Background.jpg" alt=""> -->
     <div class="content">
         <h1>BLOCK 69 CAFÉ</h1>
         <p class="quote">Discover Coffee, Packages, and Services!</p>
@@ -19,7 +30,6 @@ include('partials/header.php');
   <div class="page-title-container">
     <div class="page-title">
     <h1>DISCOVER COFFEE, PACKAGES, AND SERVICES!</h1>
-    <!-- <p>Embark on a journey through the world of coffee with our Explore category. Dive into our offerings, including bespoke coffee bar services and enticing café booking packages, designed to enhance your coffee experience. Delve deeper into our drip coffee set, perfect for discovering new flavors in the comfort of your own space. Let your senses guide you as you explore the richness and variety of our coffee offerings. Start your coffee adventure today!</p> -->
   </div>
   </div>
 
@@ -43,75 +53,109 @@ include('partials/header.php');
                 <a class="learn-more" href="coffee-bar-services.html">Learn More</a>
             </div>
         </div>
-        
-        <!-- <div class="title">
-        <h1>Beverage Services</h1>
-        <p>Take a look at how to book your next unforgettable experience with us. Our comprehensive booking information ensures a hassle-free process from start to finish. Don't miss out on creating memorable moments - reserve your spot today!</p>
-            <a href="">Book Now</a>
-        </div> -->
     </div>
   </div>
+    <form action="services.php" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="content_id">
+    <?php
 
-  <div class="events" style="margin-top: 2em;">
-    <div class="container_color">
-      <h1>birthdays</h1>
-    <div class="container">
-        <div class="container_big_img">
-            <img class="pic1" src="Events Images/0.1.jpg" alt="">
-                <div class="container_small_img">
-                    <img class="img_throw1" src="Events Images/1.jpg" alt="">
-                    <img class="img_throw1"src="Events Images/2.jpg" alt="">
-                    <img class="img_throw1" src="Events Images/3.jpg" alt="">
-                    <img class="img_throw1" src="Events Images/4.jpg" alt="">
-                </div>
+    if($user_type == 'admin'){
+        echo '
+        <div style="background-color: white; margin: 2em;">
+        
+            <button class="add-btn" name="edit-btn"><i class="fa-solid fa-plus"></i> Add Content</button>
+        
         </div>
-        <div class="container_text">
-            <h4>Eli’s 9th Birthday at Pateros, Metro Manila</h4>
-            <p>140 cups served</p>
+        ';
+        echo '
+        <!-- Start of Add Modal -->
+        <div class="bg-modal-add">
+        <div class="modal-content-add">
+            <div class="close"><i class="fa-solid fa-square-xmark" style="color: black;"></i></div>
+            <p class="modal-title">EVENT NAME</p>
+            <textarea class="edit-content" name="event_name"></textarea>
+            <p class="modal-title">TITLE</p>
+            <textarea class="edit-content" name="content_title"></textarea>
+            <p class="modal-caption">CAPTION</p>
+            <textarea class="edit-content" name="content_caption"></textarea>
+            <div>
+            <label for="image" id="file-upload-label" class="custom-file-upload">Upload 5 images</label>
+            <input type="file" id="image" class="inputfile" name="content_images[]" multiple>
+            </div>
+            <input class="saveBtn" type="submit" name="submit">
         </div>
-    </div>
-    </div>
+        </div>
+        <!-- End of Modal -->';
+    }
 
-    <div class="container_color"">
-        <h1>corporate events</h1>
-      <div class="container">
-          <div class="container_big_img">
-              <img class="pic1" src="Events Images/14.png" alt="">
-                  <div class="container_small_img">
-                      <img class="img_throw1" src="Events Images/9.png" alt="">
-                      <img class="img_throw1" src="Events Images/10.png" alt="">
-                      <img class="img_throw1" src="Events Images/11.png" alt="">
-                      <img class="img_throw1" src="Events Images/13.png" alt="">
-                  </div>
-          </div>
-          <div class="container_text">
-              <h4>JAAM Foodcorp Christmas Party at Episode Bar + Kitchen</h4>
-              <p>150 cups served</p>
-          </div>
-      </div>
-      </div>
+    foreach ($content as $row) {
+    $modalClass = 'modal-'.$row['content_id'];
+    $contentIdName= 'content_id'.$row['content_id'];
+    $contentEventName = 'event_name'.$row['content_id'];
+    $contentTitleName = 'content_title'.$row['content_id'];
+    $contentCaptionName = 'content_caption'.$row['content_id'];
+    $customFileUploadClass = 'custom-file-upload custom-file-upload'.$row['content_id'];
+    $contentImageId = 'content_images[]'.$row['content_id'];
 
-    <div class="container_color" style="background-color: black;">
-        <!-- <div class="cont_h1"> -->
-            <h1 style="color: white;">community activity</h1>
-        <!-- </div> -->
-        <div class="container">
-            <div class="container_big_img">
-                    <div class="container_small_img_v2">
-                        <img class="img_throw1" src="Events Images/15.png" alt="">
-                        <img class="img_throw1"src="Events Images/20.jpg" alt="">
-                        <img class="img_throw1" src="Events Images/17.png" alt="">
-                        <img class="img_throw1"src="Events Images/18.png" alt="">
+    echo '
+    <!-- Start of Edit Modal -->
+    <div class="bg-modal '.$modalClass.'">
+      <div class="modal-content">
+        <div class="close"><i class="fa-solid fa-square-xmark" style="color: black;"></i></div>
+            <p class="modal-title">EVENT NAME</p>
+            <textarea class="edit-content" name="'.$contentEventName.'">'.$row['event_name'].'</textarea>
+          <p class="modal-title">CONTENT TITLE</p>
+          <textarea class="edit-content" name="'.$contentTitleName.'">'.$row['content_title'].'</textarea>
+          <p class="modal-caption">CONTENT CAPTION</p>
+          <textarea class="edit-content" name="'.$contentCaptionName.'">'.$row['content_caption'].'</textarea>
+
+        <div>
+        <p style="color: white; margin:1em 2em 0em 2em; font-family: league spartan; font-size: 20px; font-weight:bold;">UPLOADED IMAGE</p>
+
+          <label for="image" class="custom-file-upload">Click to upload new 5 images</label>
+          <input type="file" id="image" name="content_images[]" class="inputfile" multiple>
+
+        </div>
+        <input class="saveBtn" type="submit" name="submit">
+      </div>
+    </div>
+    <!-- End of Modal -->';
+
+    if($user_type == 'admin'){
+        echo '
+        
+        <div><button class="edit-btn" name="edit-btn" data-content-id="'.$row['content_id'].'" data-content-event="'.$row['event_name'].'" data-content-title="'. $row['content_title'].'" data-content-caption="'. $row['content_caption'].'" data-content-image="'.$row['content_images'].'">Edit Content <i class="fa-regular fa-pen-to-square"></i></button></div>
+        <button class="delete-btn" name="edit-btn" data-content-id="'.$row['content_id'].'">Delete Content <i class="fa-regular fa-trash-can"></i></button>
+
+        ';
+    }
+        if ($row['content_id'] > 0) {
+            $imagePaths = explode(",", $row['content_images']);
+            echo '
+                <div class="events" style="margin-top: 2em;">
+                    <div class="container_color">
+                        <div class="eventName">'.$row['event_name'].'</div>
+                        <div class="container">
+                            <div class="container_big_img">
+                                <img class="pic1" src="'.$imagePaths[0].'" alt="">
+                                    <div class="container_small_img">
+                                        <img class="img_throw1" src="'.$imagePaths[1].'" alt="">
+                                        <img class="img_throw1" src="'.$imagePaths[2].'" alt="">
+                                        <img class="img_throw1" src="'.$imagePaths[3].'" alt="">
+                                        <img class="img_throw1" src="'.$imagePaths[4].'" alt="">
+                                    </div>
+                            </div>
+                            <div class="container_text">
+                                <h4>'.$row['content_title'].'</h4>
+                                <p>'.$row['content_caption'].'</p>
+                            </div>
+                        </div>
                     </div>
-                    <img class="pic1" src="Events Images/19.png" alt="">
-            </div>
-            <div class="container_text">
-                <h4 style="color: white;">The Generics Pharmacy Medical Mission</h4>
-                <p style="color: white;">150 cups served</p>
-            </div>
-        </div>
-    </div>
-    </div>
+                ';
+        }
+    }
+    ?>
+    </form>
 
     <div class="announcement">
         <p>*Photos displayed above were taken with consent from the customers. We support the privacy and identity of our clients.</p>
@@ -119,13 +163,98 @@ include('partials/header.php');
 
 <?php include('partials/footer.php'); ?>
 
+<script>
+var modalClass = "modal-1";
+var contentTitle = "";
+var contentId = 1;
+var contentCaption = "";
+var contentImage ="";
+var contentImageId = 'content_images'+contentId;
 
+document.querySelectorAll('.edit-btn').forEach(function(button) {
+    button.addEventListener('click', function(event) {
+        event.preventDefault();
+        //fetch data
+        eventName = button.getAttribute('data-content-event');
+        contentTitle = button.getAttribute('data-content-title');
+        contentCaption = button.getAttribute('data-content-caption');
+        contentImage = button.getAttribute('data-content-image');
+        contentId = button.getAttribute('data-content-id');
+        contentImageId = 'content_image'+contentId;
+        
+        handleEditButtonClick(contentId);
+    });
+});
 
+document.querySelectorAll('.add-btn').forEach(function(button) {
+    button.addEventListener('click', function(event) {
+        event.preventDefault();
+        document.querySelector('.bg-modal-add').style.display = 'flex';
+        handleAddButtonClick();
+    });
+});
 
+//Function to handle edit button clicks
+function handleEditButtonClick(contentId) {
+  modalClass = "modal-"+contentId;
+  document.querySelector('input[name="content_id"]').value = contentId;
+  document.querySelector('.bg-modal.'+modalClass).style.display = 'flex';
+}
 
+//Function to handle add button clicks
+function handleAddButtonClick() {
+  document.querySelector('.bg-modal-add.').style.display = 'flex';
+}
 
+document.querySelectorAll('.close').forEach(function(element) {
+  element.addEventListener('click', function() {
+    document.querySelector('.bg-modal').style.display = 'none';
+    document.querySelector('.bg-modal-add').style.display = 'none';
+  });
+});
 
+document.querySelectorAll('.delete-btn').forEach(function(button) {
+    button.addEventListener('click', function(event) {
+        event.preventDefault();
+        var contentId = button.getAttribute('data-content-id');
+        if (confirm('Are you sure you want to delete this content?')) {
+            var form = document.createElement('form');
+            form.method = 'post';
+            form.action = 'services.php';
+            var input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'delete_content_id';
+            input.value = contentId;
+            form.appendChild(input);
+            document.body.appendChild(form);
+            form.submit();
+        }
+    });
+});
 
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.edit-content').forEach(function(textarea) {
+    ClassicEditor
+      .create(textarea)
+      .catch(function(error) {
+        console.error(error);
+      });
+  });
+});
 
+document.getElementById('content_images[]'+contentId).addEventListener('change', function() {
+  var fileName = this.files[0].name;
+  var label = document.querySelector('.custom-file-upload.custom-file-upload'+contentId);
+  label.textContent = fileName;
+});
+document.getElementById('image').addEventListener('change', function() {
+    var fileList = this.files;
+    var fileName = Array.from(fileList).map(file => file.name).join(', ');
+    var label = document.getElementById('file-upload-label');
+    label.textContent = fileName;
+});
 
-
+if ( window.history.replaceState ) {
+    window.history.replaceState( null, null, window.location.href );
+}
+</script>

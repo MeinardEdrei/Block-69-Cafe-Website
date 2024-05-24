@@ -75,13 +75,13 @@ if (isset($_POST['submit'])) {
     }
 }
 
-function get_content_by_id($conn, $content_id){
-  $query = "SELECT * FROM homecontent WHERE content_id = '$content_id' ";
+// function get_content_by_id($conn, $content_id){
+//   $query = "SELECT * FROM homecontent WHERE content_id = '$content_id' ";
 
-  $result = mysqli_query($conn, $query);
-  $content_data = mysqli_fetch_assoc($result);
-  return $content_data;
-}
+//   $result = mysqli_query($conn, $query);
+//   $content_data = mysqli_fetch_assoc($result);
+//   return $content_data;
+// }
 
 function get_content($conn){
   $query = "SELECT * FROM homecontent";

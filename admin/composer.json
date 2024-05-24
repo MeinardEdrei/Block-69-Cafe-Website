@@ -1,0 +1,10 @@
+{
+    "name": "block69/admin",
+    "description": "Administrative interface for Block 69 ordering system",
+    "type": "project",
+    "license": "Apache",
+    "minimum-stability": "dev",
+    "require": {
+        "phpmailer/phpmailer": "dev-master"
+    }
+}

@@ -69,12 +69,12 @@
 
     if($userActive){
         echo '
-        <a id="Cart" href="cart.php"><i class="fa-solid fa-cart-shopping" style="font-size: 25px;"><span>0</span></i></a>
+        <a id="Cart" href="shopping-cart.php"><i class="fa-solid fa-cart-shopping" style="font-size: 25px;"><span>0</span></i></a>
         <a href="sign-out.php"  id="User"><i class="fa-sharp fa-solid fa-right-from-bracket" style="font-size: 25px; margin-right: 10px;"></i></a>
         </div>';
     }else{
         echo '<a href="sign-in.php" id="Sign-in">Login</a>
-        <a href="sign-up.php" id="Sign-up">Sign up</a>
+        <a href="sign-up.php" id="Sign-up">Join now</a>
         <a id="Cart" href="cart.php"><i class="fa-solid fa-cart-shopping" style="font-size: 25px;"></i></a>';
     }
     ?>
