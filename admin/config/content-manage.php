@@ -201,6 +201,7 @@ function get_gallerysection($conn){
         
         echo "<meta http-equiv='refresh' content='0'>";
     }
+  }
   
     if(isset($_POST['img_ID1']) || isset($_POST['img_ID2']) || isset($_POST['img_ID3']) || isset($_POST['img_ID4'])) {
         for($i = 1; $i <= 4; $i++) {
@@ -220,25 +221,23 @@ function get_gallerysection($conn){
         }
         echo "<meta http-equiv='refresh' content='0'>";
     }
-
     if(isset($_POST['img_ID5']) || isset($_POST['img_ID6']) || isset($_POST['img_ID7']) || isset($_POST['img_ID8'])) {
-        for($i = 5; $i <= 8; $i++) {
-            if(!empty($_FILES['file-img' . $i]['name'])) {
-                $img_id = $_POST['img_ID' . $i];
-                $file_name = $_FILES['file-img' . $i]['name'];
-                $temp_name = $_FILES['file-img' . $i]['tmp_name'];
-                $img_url = './galleryImages/' . $file_name;
-                move_uploaded_file($temp_name, $img_url);
-            
-                $conn->query("
-                  UPDATE galleryimage 
-                  SET img = '$img_url'
-                  WHERE img_ID = '$img_id'
-                ");
-            }
+    for($i = 5; $i <= 8; $i++) {
+        if(!empty($_FILES['file-img' . $i]['name'])) {
+            $img_id = $_POST['img_ID' . $i];
+            $file_name = $_FILES['file-img' . $i]['name'];
+            $temp_name = $_FILES['file-img' . $i]['tmp_name'];
+            $img_url = './galleryImages/' . $file_name;
+            move_uploaded_file($temp_name, $img_url);
+        
+            $conn->query("
+              UPDATE galleryimage 
+              SET img = '$img_url'
+              WHERE img_ID = '$img_id'
+            ");
         }
-        echo "<meta http-equiv='refresh' content='0'>";
     }
+    echo "<meta http-equiv='refresh' content='0'>";
 }
 
   function update_sectionContent_when_submit($conn) {

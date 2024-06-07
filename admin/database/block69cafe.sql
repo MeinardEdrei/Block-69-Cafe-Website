@@ -144,11 +144,11 @@ CREATE TABLE `cafebarkadapackage` (
 --
 
 INSERT INTO `cafebarkadapackage` (`id`, `pax`, `rate`, `inclusion`) VALUES
-(1, '10', 'PHP 10,524.42', '1 set Calamari Platter, Fries Platter, Chicken Balls Platter, and Nachos Overload'),
-(2, '15', 'PHP 12,086.14', '1 set Calamari Platter, Fries Platter, Chicken Balls Platter, and Nachos Overload; Additional 1 choice of platter'),
-(3, '20', 'PHP 13,020.67', '2 set Calamari Platter, Fries Platter, Chicken Balls Platter, and Nachos Overload'),
-(4, '25', 'PHP 14,582.40', '2 set Calamari Platter, Fries Platter, Chicken Balls Platter, and Nachos Overload; Additional 2 choices of platter'),
-(5, '30', 'PHP 15,516.93 ', '3 set Calamari Platter, Fries Platter, Chicken Balls Platter, and Nachos Overload');
+(1, '10', 'PHP 10,524.42', '1 setCalamari Platter, Fries Platter, Chicken Balls Platter, and Nachos Overload'),
+(2, '15', 'PHP 12,086.14', '1 setCalamari Platter, Fries Platter, Chicken Balls Platter, and Nachos Overload; Additional 1 choice of platter'),
+(3, '20', 'PHP 13,020.67', '2 setCalamari Platter, Fries Platter, Chicken Balls Platter, and Nachos Overload'),
+(4, '25', 'PHP 14,582.40', '2 setCalamari Platter, Fries Platter, Chicken Balls Platter, and Nachos Overload; Additional 2 choices of platter'),
+(5, '30', 'PHP 15,516.93 ', '3 setCalamari Platter, Fries Platter, Chicken Balls Platter, and Nachos Overload');
 
 -- --------------------------------------------------------
 

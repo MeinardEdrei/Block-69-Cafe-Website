@@ -1,3 +1,7 @@
+html {
+    font-family: league spartan;
+}
+
 .bg-modal{
     width: 100%;
     height: 100%;
@@ -28,25 +32,23 @@
 .edit-btnBlack{
     cursor: pointer;
     color: white;
-    position: absolute;
     margin: 1em;
     left: 86vw;
     background-color: black;
     padding: 1em;
     font-family: League Spartan;
-    font-size: 18px;
+    font-size: 12px;
     border: 1px solid white;
 }
 .edit-btnWhite{
     cursor: pointer;
     color: black;
-    position: absolute;
     margin: 1em;
     left: 86vw;
     background-color: white;
     padding: 1em;
     font-family: League Spartan;
-    font-size: 18px;
+    font-size: 12px;
     border: 1px solid black;
 }
 .edit-btn:hover {
@@ -56,4 +58,32 @@
 .modal-content{
     background-color: black;
     width: 75%;
+}
+
+@media screen and (min-width: 1012px) {
+    .edit-btnBlack{
+        cursor: pointer;
+        color: white;
+        position: absolute;
+        margin: 1em;
+        left: 86vw;
+        background-color: black;
+        padding: 1em;
+        font-family: League Spartan;
+        font-size: 18px;
+        border: 1px solid white;
+    }
+
+    .edit-btnWhite{
+        cursor: pointer;
+        color: black;
+        position: absolute;
+        margin: 1em;
+        left: 86vw;
+        background-color: white;
+        padding: 1em;
+        font-family: League Spartan;
+        font-size: 18px;
+        border: 1px solid black;
+    }
 }
