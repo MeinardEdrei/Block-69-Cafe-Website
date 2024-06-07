@@ -271,7 +271,7 @@ include('partials/header.php');
             <?php } ?>
         </div>
     </div>
-    <div class="flex flex-col justify-center items-center">
+    <div class="flex flex-col justify-center items-center mt-36">
     <div class="flex items-center justify-center">
         <h1 class="text-4xl font-bold">
             <?php echo $packagecontactcontent[3]["title"]; ?>

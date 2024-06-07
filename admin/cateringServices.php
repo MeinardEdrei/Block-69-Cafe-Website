@@ -179,13 +179,19 @@ include_once('partials/header.php');
                         <td class="border-black border-2 text-sm p-[2px] md:text-base md:p-5" <?php if ($user_type == 'admin') echo 'contenteditable="true"'; ?>><?php echo $row["pasta"]; ?></td>
                         <?php if ($user_type == 'admin') { ?>
                             <td class="border-black border-2 text-sm p-[2px] md:text-base md:p-5">
-                                <button class="saveRow bg-black text-white px-4 py-2 rounded-lg">Save</button>
+                                <button class="saveRow bg-black text-white px-2 py-1 rounded-lg md:px-4 md:py-2">Save</button>
                             </td>
                         <?php } ?>
                     </tr>
                 <?php } ?>
             </tbody>
         </table>
+    </div>
+    <div class="flex flex-col justify-center items-center mt-36">
+    <div class="flex items-center justify-center">
+        <h1 class="text-4xl font-bold">
+            <?php echo $packagecontactcontent[3]["title"]; ?>
+        </h1>
     </div>
     <div class="flex flex-col justify-center items-center gap-1 w-2/4 md:flex-row">
         <div class="flex flex-col justify-center items-center p-8">
@@ -270,7 +276,7 @@ include_once('partials/header.php');
             </div>
         </div>
     </div>
-    </div>
+</div>
     <div id="modal-1" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
