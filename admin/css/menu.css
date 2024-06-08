@@ -8,6 +8,18 @@ li{
   list-style: none;
 }
 
+#preloader{
+    background: white url(../Images/preloader.gif) no-repeat center;
+    background-size: 30%;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+textarea {
+  resize: none;
+}
 #notification {
   display: none; 
   position: fixed; 
@@ -20,6 +32,7 @@ li{
   color: white; 
   font: 500 1.05em League Spartan;
 }
+
 .sidebarAndContent {
   height: 54em;
   width: 100%;
@@ -170,21 +183,24 @@ h2 span {
   display: flex;
   align-items: center;
 }
-.cms-add {
+.cms-add,
+.cms-add-item {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: end;
   gap: 25px;
 }
-.cms-add button {
+.cms-add button,
+.cms-add-item button {
   padding: 1em 2em;
   background: transparent;
   border: 1px solid black;
   cursor: pointer;
   transition: all 0.3s;
 }
-.cms-add button:hover {
+.cms-add button:hover,
+.cms-add-item button:hover {
   background-color: black;
   color: white;
 }
@@ -204,10 +220,12 @@ h2 span {
 .fa-plus,
 .fa-trash-can,
 .fa-pen-to-square {
-  font-size: 1.2em;
+  font-size: 1.4em;
 }
 
-.bg-modal-add{
+.bg-modal-add, 
+.bg-modal-add-item
+ {
   z-index: 10;
   width: 100vw;
   height: 100vh;
@@ -227,7 +245,7 @@ h2 span {
   padding: 0.5em;
   border: 3px solid black;
 }
-.modal-title, .modal-caption{
+.modal-title, .modal-caption, .modal-price1, .modal-price2{
   padding: .5em;
   color: black;
   font-family: League Spartan;
@@ -240,8 +258,52 @@ h2 span {
   border: 1px solid black;
   text-align: center;
 }
-.inputfile {
-  display: none;
+.edit-item-image {
+  width: 8em;
+  border-radius: 50%;
+}
+.input-file {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 4em;
+  margin-top: 2em;
+}
+
+.bg-modal-edit,
+.bg-modal-edit-item {
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  right: 0;
+  background-color: rgb(0, 0, 0, .7);
+}
+.modal-edit-content {
+  width: 43em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  background-color: white;
+  padding: 1em;
+  border: 3px solid black;
+}
+.edit_image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.edit_image img {
+  border-radius: 50%;
+}
+.edit_image {
+  text-align: center;
 }
 
 .saveBtn{
@@ -260,7 +322,7 @@ h2 span {
   background-color: rgb(26, 26, 26);
 }
 
-.custom-file-upload {
+/* .custom-file-upload {
   border: 1px solid #ccc;
   font-family: League Spartan;
   font-size: 18px;
@@ -271,21 +333,20 @@ h2 span {
   background-color: black;
   color: white;
   border-radius: 4px;
-}
-.custom-file-upload:hover {
-  background-color: rgb(26, 26, 26);
-}
+} */
 
 .bg-modal-add {
   display: none;
 }
 
-.close{
-  position: relative;
-  left: 20.6em;
-  font-size: 2em;
-  width: 30px !important;
+.close,
+.edit-close {
+  width: 100%;
   cursor: pointer;
+  width: 30x !important;
+  font-size: 2em;
+  display: flex;
+  justify-content: end;
 }
 
 .overlay {
@@ -309,18 +370,19 @@ h2 span {
   background-color: white;
   border: 5px solid black;
   border-radius: 3em;
-  top: 100%;
-  left: 50%;
+  top: -25%; 
+  left: 75%; 
   visibility: hidden;
-  transform: translate(-50%,-50%) scale(0.2);
-  transition: transform 0.3s, top 0.3s;
+  transform: scale(0.1);
+  transition: all 0.3s;
   z-index: 1001;
   filter: blur(0px);
 }
 .open-popup {
   visibility: visible;
-  top: 50%;
-  transform: translate(-50%,-50%) scale(1);
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%) scale(1); /* Center the popup and scale it up */
 }
 .open-popup .overlay {
   display: block; /* Show overlay when popup is open */
@@ -410,12 +472,12 @@ body .popup-open{
   color:gray;
 }
 .quantity-input {
-  width: 1em;
+  width: 2em;
   text-align: center;
   color: rgba(0, 0, 0, .8);
   border: 1px solid rgba(0, 0, 0, .09);
   -webkit-appearance: none;
-  padding: 3px 10px;
+  padding: 3px 5px;
 }
 .total {
   margin-top: 30px;

@@ -1,0 +1,36 @@
+[33m2a04c50[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{0}: commit (merge): menu complete
+[33mc937bc5[m HEAD@{1}: commit: menu complete(ata)
+[33mfccd621[m HEAD@{2}: commit: new ordering
+[33m7200cfc[m HEAD@{3}: commit: ordering
+[33m934d1a7[m HEAD@{4}: pull: Fast-forward
+[33mb761204[m HEAD@{5}: commit (merge): ordering
+[33mb5864d5[m HEAD@{6}: commit: ordering
+[33m479c3e6[m HEAD@{7}: commit: Complete Ordering System
+[33mebab70e[m HEAD@{8}: pull: Fast-forward
+[33me383b4f[m HEAD@{9}: commit: 90%
+[33m6bcb56f[m HEAD@{10}: commit (merge): modified: menu and header
+[33m2106d36[m HEAD@{11}: commit: Modified Header and Menu
+[33mf1d7b14[m HEAD@{12}: pull: Fast-forward
+[33m78d43f3[m HEAD@{13}: commit: modified Menu(95%), Shopping Cart(90%) and Checkout(40%)
+[33me480599[m HEAD@{14}: pull: Fast-forward
+[33m574bf3e[m HEAD@{15}: pull: Fast-forward
+[33m8892010[m HEAD@{16}: commit: modified menu, working add to cart (checkbox not finish), deleted some javascript
+[33m9f868c9[m HEAD@{17}: pull: Fast-forward
+[33m97d5341[m HEAD@{18}: commit: modified menu php and javascript
+[33m6650ddd[m HEAD@{19}: commit: latestt
+[33mcce9c66[m HEAD@{20}: pull: Fast-forward
+[33mf972c17[m HEAD@{21}: reset: moving to HEAD@{1}
+[33m065110c[m HEAD@{22}: pull: Fast-forward
+[33mf972c17[m HEAD@{23}: reset: moving to HEAD@{1}
+[33m065110c[m HEAD@{24}: pull: Fast-forward
+[33mf972c17[m HEAD@{25}: commit (merge): added menu-cms.php, modified menu.php and css, exlcuding 2 javascript (will delete later)
+[33m092e070[m HEAD@{26}: commit: added menu-cms.php, modified menu.php and css, excluding the javascript
+[33m7a1e0c7[m HEAD@{27}: commit: modified menu.php and menu-cms.php
+[33m1cc8c96[m HEAD@{28}: commit (merge): modified menu.php and menu-cms.php
+[33m1f24af6[m HEAD@{29}: commit: modified menu.php and menu-cms.php
+[33m8407b79[m HEAD@{30}: commit: modify css, html of checkout and shopping-cart
+[33m78bede4[m HEAD@{31}: pull: Fast-forward
+[33mbef12a6[m HEAD@{32}: commit: modified menuPopup.js, shopping-cart css & html, checkout css & html
+[33m9964df4[m HEAD@{33}: commit: modified menu.php, added checkout.php and shopping-cart.php, added 4 javascript files, modified menu.js, and few css were added. Renamed the image filename.
+[33mdf71939[m HEAD@{34}: commit: added menu
+[33m9ae61f9[m HEAD@{35}: clone: from github.com:Louigie21/Block-69-Cafe-Website.git

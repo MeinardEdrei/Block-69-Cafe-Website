@@ -30,6 +30,7 @@
     font-size: 35px;
     margin-bottom: 15px;
     width: 100%;
+    font-weight: bold;
 }
 
 .caption-barservices {
@@ -58,6 +59,7 @@
     font-size: 35px;
     width: 100%;
     margin-bottom: 20px;
+    font-weight: bold;
 }
 
 .content-booking {
@@ -181,6 +183,7 @@
 .our-flavors {
     font-size: 35px;
     margin-bottom: 30px;
+    font-weight: bold;
 }
 
 .title-premium,
@@ -194,13 +197,14 @@
     width: 50%;
     margin: 0 auto;
     border-collapse: collapse;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    height: 200px;
 }
 
 .styled-table td,
 .styled-table th {
     border: 1px solid black;
-    padding: 8px;
+    padding: 8px; /* This padding adds space around the content */
     font-size: 20px;
 }
 
@@ -266,7 +270,7 @@
     left: 86vw;
     background-color: black;
     padding: 1em;
-    font-family: League Spartan;
+    font-family: 'League Spartan';
     font-size: 18px;
     border: 1px solid white;
 }
@@ -344,7 +348,7 @@
 }
 
 .saveBtn {
-    font-family: League Spartan;
+    font-family: 'League Spartan';
     cursor: pointer;
     color: white;
     font-size: 18px;
@@ -373,7 +377,7 @@
 .modal-caption {
     padding: 0.5em;
     color: black;
-    font-family: League Spartan;
+    font-family: 'League Spartan';
     font-size: 18px;
     font-weight: bold;
 }
@@ -384,7 +388,7 @@
 
 .custom-file-upload {
     border: 1px solid #ccc;
-    font-family: League Spartan;
+    font-family: 'League Spartan';
     font-size: 18px;
     display: inline-block;
     padding: 6px 12px;
@@ -411,7 +415,7 @@
     left: 86vw;
     background-color: black;
     padding: 1em;
-    font-family: League Spartan;
+    font-family: 'League Spartan';
     font-size: 18px;
     border: 1px solid white;
 }
@@ -430,9 +434,7 @@
     height: 10em;
     width: 40.5em;
     border: 5px solid black;
-    /* Add black border */
     background-color: white;
-    /* Ensure background is white */
 }
 
 .bg-modal2 {
@@ -454,23 +456,18 @@
     display: block;
     margin: 0 auto;
     border: 1em solid black;
-    /* Add black border */
     background-color: white;
-    /* Ensure background is white */
 }
 
 .modal-content2 {
     width: 45em;
     max-height: 80vh;
-    /* Adjust as needed */
     text-align: center;
     color: black;
     background-color: white;
     padding: 1em;
     border: 1px solid black;
-    /* Add black border */
     overflow-y: auto;
-    /* Enable vertical scrolling */
 }
 
 .edit-content {
@@ -489,7 +486,7 @@
 }
 
 .saveBtn {
-    font-family: League Spartan;
+    font-family: 'League Spartan';
     cursor: pointer;
     color: white;
     font-size: 18px;
@@ -514,8 +511,8 @@
     cursor: pointer;
 }
 
-.modal-title,
-.modal-caption {
+.modal-title2,
+.modal-caption2 {
     padding: 0.5em;
     color: black;
     font-family: League Spartan;
@@ -529,7 +526,7 @@
 
 .custom-file-upload {
     border: 1px solid #ccc;
-    font-family: League Spartan;
+    font-family: 'League Spartan';
     font-size: 18px;
     display: inline-block;
     padding: 6px 12px;
@@ -556,7 +553,7 @@
     left: 86vw;
     background-color: black;
     padding: 1em;
-    font-family: League Spartan;
+    font-family: 'League Spartan';
     font-size: 18px;
     border: 1px solid white;
 }
@@ -634,7 +631,7 @@
 }
 
 .saveBtn {
-    font-family: League Spartan;
+    font-family: 'League Spartan';
     cursor: pointer;
     color: white;
     font-size: 18px;
@@ -659,11 +656,10 @@
     cursor: pointer;
 }
 
-.modal-title,
-.modal-caption {
+.modal-title3 {
     padding: 0.5em;
     color: black;
-    font-family: League Spartan;
+    font-family: 'League Spartan';
     font-size: 18px;
     font-weight: bold;
 }
@@ -674,7 +670,7 @@
 
 .custom-file-upload {
     border: 1px solid #ccc;
-    font-family: League Spartan;
+    font-family: 'League Spartan';
     font-size: 18px;
     display: inline-block;
     padding: 6px 12px;
@@ -697,7 +693,7 @@
     color: white;
     background-color: black;
     padding: 0.5em 1em; /* Adjust padding as needed */
-    font-family: League Spartan;
+    font-family: 'League Spartan';
     font-size: 18px;
     border: 1px solid white;
     display: inline-block; /* Ensures the button behaves as an inline block */
@@ -778,7 +774,7 @@
 }
 
 .saveBtn {
-    font-family: League Spartan;
+    font-family: 'League Spartan';
     cursor: pointer;
     color: white;
     font-size: 18px;
@@ -807,7 +803,7 @@
 .modal-caption {
     padding: 0.5em;
     color: black;
-    font-family: League Spartan;
+    font-family: 'League Spartan';
     font-size: 18px;
     font-weight: bold;
 }
@@ -818,7 +814,7 @@
 
 .custom-file-upload {
     border: 1px solid #ccc;
-    font-family: League Spartan;
+    font-family: 'League Spartan';
     font-size: 18px;
     display: inline-block;
     padding: 6px 12px;
@@ -841,7 +837,7 @@
     color: white;
     background-color: black;
     padding: 0.5em 1em; /* Adjust padding as needed */
-    font-family: League Spartan;
+    font-family: 'League Spartan';
     font-size: 18px;
     border: 1px solid white;
     display: inline-block; /* Ensures the button behaves as an inline block */
@@ -922,7 +918,7 @@
 }
 
 .saveBtn {
-    font-family: League Spartan;
+    font-family:'League Spartan';
     cursor: pointer;
     color: white;
     font-size: 18px;
@@ -951,7 +947,7 @@
 .modal-caption {
     padding: 0.5em;
     color: black;
-    font-family: League Spartan;
+    font-family: 'League Spartan';
     font-size: 18px;
     font-weight: bold;
 }
@@ -962,7 +958,7 @@
 
 .custom-file-upload {
     border: 1px solid #ccc;
-    font-family: League Spartan;
+    font-family: 'League Spartan';
     font-size: 18px;
     display: inline-block;
     padding: 6px 12px;
@@ -1066,7 +1062,7 @@
 }
 
 .saveBtn {
-    font-family: League Spartan;
+    font-family: 'League Spartan';
     cursor: pointer;
     color: white;
     font-size: 18px;
@@ -1095,7 +1091,7 @@
 .modal-caption {
     padding: 0.5em;
     color: black;
-    font-family: League Spartan;
+    font-family: 'League Spartan';
     font-size: 18px;
     font-weight: bold;
 }
@@ -1106,7 +1102,7 @@
 
 .custom-file-upload {
     border: 1px solid #ccc;
-    font-family: League Spartan;
+    font-family: 'League Spartan';
     font-size: 18px;
     display: inline-block;
     padding: 6px 12px;
@@ -1129,7 +1125,7 @@
     color: white;
     background-color: black;
     padding: 0.5em 1em; /* Adjust padding as needed */
-    font-family: League Spartan;
+    font-family: 'League Spartan';
     font-size: 18px;
     border: 1px solid white;
     display: inline-block; /* Ensures the button behaves as an inline block */
@@ -1210,7 +1206,7 @@
 }
 
 .saveBtn {
-    font-family: League Spartan;
+    font-family: 'League Spartan';
     cursor: pointer;
     color: white;
     font-size: 18px;
@@ -1239,7 +1235,7 @@
 .modal-caption {
     padding: 0.5em;
     color: black;
-    font-family: League Spartan;
+    font-family: 'League Spartan';
     font-size: 18px;
     font-weight: bold;
 }
@@ -1250,7 +1246,7 @@
 
 .custom-file-upload {
     border: 1px solid #ccc;
-    font-family: League Spartan;
+    font-family: 'League Spartan';
     font-size: 18px;
     display: inline-block;
     padding: 6px 12px;

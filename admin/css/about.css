@@ -1,117 +1,113 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 /* Start of Content Design */
-
 .container-heading {
   display: flex;
-  flex-direction: column;
-}
-
-.heading {
-    text-align: center;
-    font-family: 'League Spartan';
-}
-
-.header {
-    margin-top: 60px;
-    color: brown;
-    font-size: 35px;
-    font-weight: 450;
-   
-}
-
-.header-caption  {
-    margin-top: 10px;
-    color: black;
-    font-size: 45px;
-    font-weight: bold;
+  margin-top: 70px;
 }
 
 .image1 {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 15px;
+  margin-right: 50px; 
+  margin-left: 40px;
 }
 
 .image1 img {
-    height: 375px;
-    width: 700px;
+  max-width: 900px; 
+  height: 460px;
 }
 
 .content1 {
-    margin-top: 15px;
-    text-align: justify; 
-    font-family: 'League Spartan';
+  flex-grow: 1; 
 }
 
-.content1 {
-    max-width: 700px; 
-    margin: 0 auto; 
-    padding: 0 10px;
-    font-size: 20px;
-    margin-top: 15px; 
-    line-height: 25px;
+.content1 .header {
+  font-size: 60px;
+  font-family: 'League Spartan';
+  font-weight: bold;
+  margin-top: 7px;
+}
+
+.content1 .contents-heading {
+  font-family: 'League Spartan';
+  margin-top: 20px;
+  font-size: 20px;
+  line-height: 25px;
+  text-align: justify;
+  margin-right: 80px;
 }
 
 .section {
   margin-top: 50px;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   background-color: black;
   color: white;
   font-family: 'League Spartan';
 }
 
 .container {
-  width: 80%;
+  width: 100%;
   display: block;
   margin: auto;
-  padding-top: 80px;
 }
 
 .content-section {
   float: left;
-  width: 55%;
+  width: 50%;
+}
+
+.container-image {
+  float: right;
+  width: 50%;
+  height: 100%; 
 }
 
 .image2 {
-  float: right;
-  width: 40%;
-  margin-top: 20px;
+  width: 100%; 
+  height: 100%;
+  overflow: hidden; 
 }
 
 .image2 img {
-  width: 500px;
-  height: 500px;
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
 }
+
 
 .title-mission {
   text-transform: uppercase;
   font-size: 35px;
   margin-top: 40px;
+  padding-top: 100px;
+  font-weight: bold;
+  margin-left: 50px;
 }
 
 .title-vision {
   text-transform: uppercase;
   font-size: 35px;
-  margin-top: 100px;
+  margin-top: 50px;
+  font-weight: bold;
+  margin-left: 50px;
 }
 
 .content-section .content-mission {
-  margin-top: 10px;
+  margin-top: 15px;
   font-size: 20px;
   line-height: 25px;
   text-align: justify;
   width: 250px;
+  margin-left: 50px;
 }
 
 .content-section .content-vision {
-  margin-top: 10px;
+  margin-top: 15px;
   font-size: 20px;
   line-height: 25px;
   text-align: justify;
   width: 505px;
+  margin-left: 50px;
 }
 
 .section2 {
@@ -127,7 +123,7 @@
   width: 100%;
   display: block;
   margin: auto;
-  padding-top: 80px;
+  padding-top: 50px;
   text-align: center;
 }
 
@@ -138,7 +134,7 @@
 .title-compadv {
   font-size: 35px;
   font-weight: bold;
-  margin-top: 20px;
+  margin-top: 0px;
 
 } 
 .content-1st {
@@ -195,11 +191,12 @@
 
 .title-compland {
   font-size: 35px;
-  padding-top: 10px;
+  padding-top: 0px;
+  font-weight: bold;
 }
 
 .content-compl  {
-  margin-top: 80px;
+  margin-top: 50px;
   line-height: 25px;
   font-size: 20px;
   text-align: justify;
@@ -218,6 +215,7 @@
   font-family: League Spartan;
   font-size: 18px;
   border: 1px solid white;
+  margin-top: -40px;
 }
 
 .edit-btn:hover {
@@ -750,351 +748,86 @@
 }
 /* End of 4thModal Design */
 
-@media (max-width: 320px) {
-
-  .container-heading {
-    width: 100%;
-  }
-
-  .heading {
-    width: 100%;
-  }
-
-  .header {
-    margin-top: 30px; 
-    font-size: 20px; 
-    font-weight: 400; 
-  }
-
-  .header-caption {
-    margin-top: 5px; 
-    font-size: 25px; 
-    font-weight: bold; 
-  }
-
-  .image1 {
-    width: 80%;
-    margin-left: 40px;
-  }
-
-  .image1 img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-
-  .content1 {
-    font-size: 15px;
-    margin-left: 30px;
-    width: 80%;
-  }
-
-  .section {
-    height: 110vh;
-  }
-
-  .container {
-    width: 100%; /* Adjust container width for smaller screens */
-    padding-top: 20px; /* Reduce padding-top for smaller screens */
-  }
-
-  .content-section {
-    width: 100%; /* Take full width on smaller screens */
-    float: none; /* Clear float */
-  }
-
-  .image2 {
-    float: none; /* Clear float */
-    width: 80%; /* Take full width */
-    margin-top: 20px; /* Adjust margin */
-    margin-left: 35px;
-  }
-
-  .image2 img {
-    width: 100%; /* Make image width 100% of its container */
-    height: auto; /* Ensure image height adjusts proportionally */
-    object-fit: cover;
-  }
-
-  .title-mission,
-  .title-vision {
-    font-size: 20px; /* Decrease font size for titles */
-    margin-top: 20px;
-    margin-left: 30px;
-  }
-
-  .content-section .content-mission,
-  .content-section .content-vision {
-    margin-top: 10px;
-    font-size: 15px; /* Decrease font size for content */
-    width: 80%; /* Take full width */
-    margin-left: 30px;
-  }
-
-  .section2 {
-    height: 145vh;/* Remove min-height to allow content to dictate height */
-  }
-
-  .container2 {
-    padding-top: 60px; /* Adjust padding for smaller screens */
-    width: 90%;
-  }
-
-  .title-compadv {
-    font-size: 20px; /* Decrease font size for the title */
-    margin-top: -20px; /* Adjust margin for the title */
-  }
-
-  .content-1st,
-  .content-2nd {
-    width: 100%; /* Take full width on smaller screens */
-    float: none; /* Clear float */
-    margin: 0; /* Remove margin */
-  }
-
-  .content-1st {
-    margin-top: 20px; /* Adjust top margin */
-    font-size: 15px;
-    width: 80%;
-    margin-left: 30px;
-  }
-
-  .content-2nd {
-    margin-top: 20px; /* Adjust top margin */
-    font-size: 15px;
-    width: 80%;
-    margin-left: 30px;
-  }
-
-  .section3 {
-    height: 110vh; /* Remove min-height to allow content to dictate height */
-  }
-
-  .container3 {
-    padding-top: 20px; /* Adjust padding for smaller screens */
-  }
-
-  .title-compland {
-    font-size: 20px; /* Decrease font size for the title */
-    padding-top: 0px; /* Adjust padding for the title */
-  }
-
-  .content-section3 {
-    float: none; /* Clear float */
-    width: 100%; /* Take full width on smaller screens */
-    margin-top: 20px; /* Adjust top margin */
-  }
-
-  .image3 {
-    float: none; /* Clear float */
-    width: 100%; /* Take full width on smaller screens */
-    margin-top: 20px; /* Adjust top margin */
-  }
-
-  .image3 img {
-    width: 100%; /* Make the image responsive */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 200px; /* Set maximum width for smaller screens */
-    margin-top: 10px; /* Adjust top margin */
-  }
-
-  .content-compl {
-    margin-top: 20px; /* Adjust top margin */
-    font-size: 15px; /* Decrease font size for content */
-    line-height: 22px; /* Decrease line height for better readability */
-  }
-
-  .edit-btn {
-    position: relative;
-    top: 10px;
-    right: auto;
-    left: 100px;
-    font-size: 12px; /* Decrease font size for smaller screens */
-  }
-  
-  .edit-btn2nd {
-    position: relative;
-    top: 10px;
-    right: auto;
-    left: 100px;
-    font-size: 12px; /* Decrease font size for smaller screens */
-  }
-
-  .edit-btn3rd {
-    position: relative;
-    top: 10px;
-    right: auto;
-    left: 100px;
-    font-size: 12px; /* Decrease font size for smaller screens */
-  }
-
-  .edit-btn4th {
-    position: relative;
-    top: 10px;
-    right: auto;
-    left: 100px;
-    font-size: 12px; /* Decrease font size for smaller screens */
-  }
-
-}
-
 @media (max-width: 768px) {
 
-  .container-heading,
-  .heading {
-    width: 100%; /* Take full width on smaller screens */
-  }
+.container-heading {
+  display: flex;
+  flex-direction: column;
+  margin-top: 70px;
+}
 
-  .header {
-    margin-top: 20px; /* Adjust margin */
-    font-size: 18px; /* Decrease font size */
-    font-weight: 400; 
-  }
+.image1 {
+  margin-right: 50px; 
+  margin-left: 40px;
+}
 
-  .header-caption {
-    margin-top: 5px; /* Adjust margin */
-    font-size: 22px; /* Decrease font size */
-    font-weight: bold; 
-  }
+.image1 img {
+  max-width: 800px; 
+  height: 400px;
+}
 
-  .image1 {
-    width: 80%; /* Adjust width */
-    margin-left: 30px; /* Adjust margin */
-  }
+.content1 {
+  flex-grow: 1; 
+  margin-left: 50px;
+}
 
-  .image1 img {
-    width: 100%; /* Make image responsive */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: cover;
-  }
+.content1 .header {
+  font-size: 50px;
+  font-family: 'League Spartan';
+  font-weight: bold;
+  margin-top: 20px;
+}
 
-  .content1 {
-    font-size: 14px; /* Decrease font size */
-    margin-left: 20px; /* Adjust margin */
-    width: 80%; /* Adjust width */
-  }
+.content1 .contents-heading {
+  font-family: 'League Spartan';
+  margin-top: 20px;
+  font-size: 20px;
+  line-height: 25px;
+  text-align: justify;
+  margin-right: 30px;
+  width: 85%;
+}
 
-  .section {
-    height: auto; /* Allow content to dictate height */
-  }
+.section {
+  margin-top: 50px;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  color: white;
+  font-family: 'League Spartan';
+}
 
-  .container {
-    width: 100%; /* Adjust container width */
-    padding-top: 15px; /* Adjust padding-top */
-  }
-
-  .content-section {
-    width: 100%; /* Take full width */
-    float: none; /* Clear float */
-  }
-
-  .image2 {
-    float: none; /* Clear float */
-    width: 80%; /* Adjust width */
-    margin-top: 15px; /* Adjust margin */
-    margin-left: 30px; /* Adjust margin */
-  }
-
-  .image2 img {
-    width: 100%; /* Make image responsive */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: cover;
-  }
-
-  .title-mission,
-  .title-vision {
-    font-size: 18px; /* Decrease font size */
-    margin-top: 15px; /* Adjust margin */
-    margin-left: 20px; /* Adjust margin */
-  }
-
-  .content-section .content-mission,
-  .content-section .content-vision {
-    margin-top: 10px; /* Adjust margin */
-    font-size: 14px; /* Decrease font size */
-    width: 80%; /* Adjust width */
-    margin-left: 20px; /* Adjust margin */
-  }
-
-  .section2 {
-    height: auto; /* Allow content to dictate height */
-  }
-
-  .container2 {
-    padding-top: 30px; /* Adjust padding */
-    width: 90%; /* Adjust width */
-  }
-
-  .title-compadv {
-    font-size: 18px; /* Decrease font size */
-    margin-top: -15px; /* Adjust margin */
-  }
-
-  .content-1st,
-  .content-2nd {
-    width: 100%; /* Take full width */
-    float: none; /* Clear float */
-    margin: 0; /* Remove margin */
-  }
-
-  .content-1st,
-  .content-2nd {
-    margin-top: 15px; /* Adjust margin */
-    font-size: 14px; /* Decrease font size */
-    width: 80%; /* Adjust width */
-    margin-left: 20px; /* Adjust margin */
-  }
-
-  .section3 {
-    height: auto; /* Allow content to dictate height */
-  }
-
-  .container3 {
-    padding-top: 15px; /* Adjust padding */
-  }
-
-  .title-compland {
-    font-size: 18px; /* Decrease font size */
-    padding-top: 0px; /* Adjust padding */
-  }
-
-  .content-section3 {
-    float: none; /* Clear float */
-    width: 100%; /* Take full width */
-    margin-top: 15px; /* Adjust margin */
-  }
-
-  .image3 {
-    float: none; /* Clear float */
-    width: 100%; /* Take full width */
-    margin-top: 15px; /* Adjust margin */
-  }
-
-  .image3 img {
-    width: 100%; /* Make image responsive */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 150px; /* Set maximum width */
-    margin-top: 10px; /* Adjust margin */
-  }
-
-  .content-compl {
-    margin-top: 15px; /* Adjust margin */
-    font-size: 14px; /* Decrease font size */
-    line-height: 20px; /* Adjust line height */
-  }
-
-  .edit-btn,
-  .edit-btn2nd,
-  .edit-btn3rd,
-  .edit-btn4th {
-    position: relative;
-    top: 10px;
-    right: auto;
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%);
-    font-size: 12px; /* Decrease font size */
-  }
+.container {
+  width: 100%;
+  display: flex;
+  margin: auto;
 
 }
 
+.content-section {
+  float: left;
+  width: 50%;
+}
 
+.container-image {
+  order: 1; /* Move the image container to the bottom */
+}
+
+.content-section {
+  order: 0; /* Ensure the content section is at the top */
+}
+
+.content-section .content-mission,
+.content-section .content-vision {
+  width: 100%;
+  margin-left: 0;
+  padding: 0 20px; /* Add padding for better appearance */
+}
+
+.title-mission,
+.title-vision {
+  margin-left: 0;
+  padding-left: 20px; /* Adjust padding to match content padding */
+}
+
+}

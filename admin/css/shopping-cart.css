@@ -121,13 +121,19 @@ a {
   height: 20px;
   width: 20px;
 } 
-.select-all-text p,
-.delete-checkout a,
+.delete-all button,
 .total-checkout p {
   font: 400 18px League Spartan;
 }
-.delete-checkout a {
+.delete-all button {
   color: red;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.delete-all button:hover {
+  font: 600 19px League Spartan;
 }
 .total-checkout span {
   color: green;

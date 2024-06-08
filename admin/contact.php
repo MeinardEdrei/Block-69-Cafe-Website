@@ -4,6 +4,8 @@ session_start();
 include('partials/header.php');
 
 ?>
+
+<title>Contact</title>
 <link rel="stylesheet" href="css/contact.css">
 <link rel="stylesheet" href="css/header.css">
     

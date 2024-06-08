@@ -1,0 +1,95 @@
+
+.userheader .container{
+    display: flex;
+    gap: 1em;
+    width: 100%;
+    margin: 3em 7em 7em 7em;
+}
+
+.userheader .navigationbar{
+    background-color: rgb(233, 233, 233);
+}
+.userheader a{
+    text-decoration: none;
+    color: black;
+    font-family: league spartan;
+    font-size: 18px;
+}
+.userheader .navigationbar button{
+    cursor: pointer;
+    background-color: transparent;
+    font-family: league spartan;
+    font-size: 15px;
+    border: none;
+    padding: 1em 3em 1em 3em;
+    margin: 0 auto;
+}
+.userheader .navigationbar button.active {
+    background-color: black;
+    color: white;
+}
+.sidebar{
+    display: flex;
+    border-bottom: 2px solid black;
+    flex-direction: column;
+    margin: 0em;
+    padding: 2em 0 33em 3em;
+    background-color: rgb(233, 233, 233);
+    width: 18%;
+}
+.sidebar button{
+    cursor: pointer;
+    background-color: transparent;
+    font-family: league spartan;
+    font-size: 18px;
+    border: none;
+    margin: 0 0 1em 0;
+}
+
+.orderContainer{
+    padding: 1em;
+    background-color: white;
+    box-shadow: 0px 1px 10px rgb(0, 0, 0, .3);
+    display: flex;
+    margin: 1em 0 0 0;
+    font-family: league spartan;
+}
+.orderContainer img{
+    width: 10%;
+    margin: 0 1em 0 0;
+}
+.orderContainer h1{
+    font-size: 18px;
+}
+.to-receive input{
+    cursor: pointer;
+    font-family: league spartan;
+    background-color: rgb(0, 56, 0);
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 1em;
+    margin: .5em;
+    position: relative;
+    top: .5em;
+    left: 48em;
+    border-radius: 5px;
+}
+.to-receive img{
+    width: 12% !important;
+}
+.purchases{
+    width: 60%;
+}
+.to-ship input{
+    cursor: pointer;
+    font-family: league spartan;
+    background-color: rgb(219, 219, 219);
+    border: none;
+    padding: 1em;
+    margin: .5em;
+    position: relative;
+    top: 0em;
+    left: 50em;
+    border-radius: 5px;
+}

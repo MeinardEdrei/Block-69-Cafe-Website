@@ -3,16 +3,20 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 1em;
   margin-bottom: 15em;
 }
 .address-container {
-  height: 120px;
+  padding: 0.5em 0em;
   width: 1250px;
   box-shadow: 1px 1px 8px rgb(0, 0, 0, .1);
+  border-top: 2px dashed black;
+  border-image: linear-gradient(to right, black, transparent, black, transparent, black, transparent, black, transparent, black, transparent, black) 30;
 }
 .products-ordered-container {
   box-shadow: 1px 1px 8px rgb(0, 0, 0, .1);
+  border-top: 2px dashed black;
+  border-image: linear-gradient(to right, black, transparent, black, transparent, black, transparent, black, transparent, black, transparent, black) 30;
 }
 .address-text {
   width: 100%;
@@ -26,32 +30,52 @@
   width: 100%;
   display: flex;
   align-items: center;
+  
   margin-left: 2em;
   margin-top: 1.5em;
+  padding: 0.8em 0em;
 }
-.contact-number,
-.address {
-  width: 50%;
-}
-.contact-number label,
-.address label {
-  font: 400 1.2em League Spartan;
+.address-info > div,
+.address > div {
+  margin-right: 1em;
 }
 .contact-number input,
-.address input {
-  padding: 0.4em 3em;
-  -webkit-appearance: none;
+.address input,
+.full-name input {
+  padding: 0.7em 1em;
   border: 1px solid black;
+  border: 1px solid #ccc; /* Add a thin border */
+  border-radius: 4px;
+}
+.contact-number input {
+  width: 12em;
+}
+.address input {
+  width: 10em;
+}
+.address {
+  display: flex;
+  margin-left: 5em;
+}
+.CB input {
+  width: 13em;
+}
+.SBH input {
+  width: 20em;
 }
 .products-summary-container {
   height: 4em;
   width: 1250px;
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: center;
 }
-.products-ordered {
-  margin-left: 2em;
+.products-summary-container p {
+  color: rgb(136, 136, 136);
+}
+.products-ordered h3 {
+  margin-left: 0.95em;
+  font: 400 1.32em League Spartan;
 }
 .products-ordered p {
   font: 400 1.4em League Spartan;
@@ -60,11 +84,9 @@
   width: 7em;
   border-radius: 2em;
 }
-.item-subtotal {
-  margin-right: 1em;
-}
 .shipping-container {
-  height: 5em;
+  height: auto;
+  padding: 2em 0em;
   width: 1250px;
   display: flex;
   align-items: center;
@@ -72,7 +94,11 @@
   border-top: 1px dashed grey;
 }
 .shipping-fee {
-  margin-right: 5em;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  width: 6em;
+  margin-right: 3em;
 }
 .column {
   flex: 1 1 16.6%;
@@ -80,7 +106,8 @@
   justify-content: center;
 }
 .order-total-container {
-  height: 5em;
+  height: auto;
+  padding: 2em 0em;
   width: 1250px;
   display: flex;
   align-items: center;
@@ -88,7 +115,15 @@
   border-top: 1px dashed grey;
 }
 .order-total {
-  margin-right: 5em;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  width: 6em;
+  margin-right: 3em;
+}
+.order-total span {
+  color: green;
+  font: 500 1.3em League Spartan;
 }
 .orders {
   display: flex;
@@ -107,33 +142,42 @@
 .mod-container {
   width: 1250px;
   box-shadow: 1px 1px 8px rgb(0, 0, 0, .1);
+  border-top: 2px dashed black;
+  border-image: linear-gradient(to right, black, transparent, black, transparent, black, transparent, black, transparent, black, transparent, black) 30;
 }
 .txt-payment {
-  height: 2.5em;
-  margin-left: 2em;
-  margin-top: 1em;
+  margin-left: 1.5em;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 1.5em 0;
 }
 .txt-payment p {
   font: 400 1.4em League Spartan;
 }
 .payment-info {
+  height: auto;
+  width: 1250px;
   display: flex;
   flex-direction: column;
-  gap: 0.4em;
   align-items: end;
   justify-content: center;
-  padding-top: 1.2em;
-  padding-bottom: 1.2em;
+  padding: 1.5em 0em;
   border-top: 1px dashed grey;
 }
 .payment-info > div {
-  margin-right: 5em;
+  margin-right: 3em;
 }
 .payment-method {
-  margin-right: 5em;
+  margin-right: 3em;
+  margin-bottom: 5px;
+}
+.paymentmethod {
+  padding: 5px 12px;
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 5px;
+  font: 500 18px League Spartan;
 }
 .place-order {
   height: 6em;
@@ -143,11 +187,34 @@
   border-top: 1px dashed grey;
 }
 .place-order button {
-  margin-right: 5em;
+  margin-right: 3em;
   padding: 10px 25px;
   background-color: black;
   border: none;
   cursor: pointer;
   color: white;
   font: 500 1em League Spartan;
+}
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  width: 7em;
+  padding: 0.5em 0;
+}
+.total-payment-price {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  color: green;
+  font: 600 1.7em League Spartan;
+  width: 7em;
+}
+.txt-total-payment {
+  margin-right: -5em;
 }

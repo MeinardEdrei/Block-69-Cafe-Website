@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2024 at 12:07 PM
+-- Generation Time: Jun 07, 2024 at 03:14 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -237,6 +237,7 @@ INSERT INTO `cafepackagespaxandprices` (`id`, `pax`, `rate`) VALUES
 --
 
 CREATE TABLE `cartcontent` (
+  `username` varchar(255) NOT NULL,
   `item_id` varchar(255) NOT NULL,
   `item_category` varchar(255) NOT NULL,
   `item_image` varchar(255) NOT NULL,
@@ -246,14 +247,6 @@ CREATE TABLE `cartcontent` (
   `item_quantity` int(255) NOT NULL DEFAULT 0,
   `item_totalprice` int(255) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `cartcontent`
---
-
-INSERT INTO `cartcontent` (`item_id`, `item_category`, `item_image`, `item_name`, `item_customization`, `item_price`, `item_quantity`, `item_totalprice`) VALUES
-('Midnight Cherry-11-16oz', 'Espresso', 'BLK/MIDNIGHT CHERRY.png', 'Midnight Cherry', '16oz', 119, 1, 119),
-('Spanish Latte-1-16oz', 'Espresso', 'BLK/SPANISH LATTE.png', 'Spanish Latte', '16oz', 149, 2, 298);
 
 -- --------------------------------------------------------
 
@@ -312,6 +305,7 @@ INSERT INTO `cateringservicestable` (`id`, `pax`, `cps`, `ct`, `ck`, `pt`, `pk`,
 --
 
 CREATE TABLE `checkoutcontent` (
+  `username` varchar(255) NOT NULL,
   `item_id` varchar(255) NOT NULL,
   `item_category` varchar(255) NOT NULL,
   `item_image` varchar(255) NOT NULL,
@@ -319,22 +313,8 @@ CREATE TABLE `checkoutcontent` (
   `item_customization` varchar(255) NOT NULL,
   `item_price` int(255) NOT NULL,
   `item_quantity` int(255) NOT NULL,
-  `item_totalprice` int(255) NOT NULL,
-  `order_total` int(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `paymentmethod` varchar(255) NOT NULL,
-  `shippingtotal` int(255) NOT NULL,
-  `totalpayment` int(255) NOT NULL,
-  `phonenumber` int(255) DEFAULT NULL
+  `item_totalprice` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `checkoutcontent`
---
-
-INSERT INTO `checkoutcontent` (`item_id`, `item_category`, `item_image`, `item_name`, `item_customization`, `item_price`, `item_quantity`, `item_totalprice`, `order_total`, `address`, `paymentmethod`, `shippingtotal`, `totalpayment`, `phonenumber`) VALUES
-('Midnight Cherry-11-16oz', 'Espresso', 'BLK/MIDNIGHT CHERRY.png', 'Midnight Cherry', '16oz', 119, 1, 119, 0, '', '', 0, 0, NULL),
-('Spanish Latte-1-16oz', 'Espresso', 'BLK/SPANISH LATTE.png', 'Spanish Latte', '16oz', 149, 2, 298, 0, '', '', 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -435,113 +415,6 @@ INSERT INTO `homecontent` (`content_id`, `content_title`, `content_caption`, `co
 -- --------------------------------------------------------
 
 --
--- Table structure for table `itemprice`
---
-
-CREATE TABLE `itemprice` (
-  `price_id` int(255) NOT NULL,
-  `price_image` varchar(255) NOT NULL,
-  `price_name` varchar(255) NOT NULL,
-  `price_type1` varchar(255) NOT NULL,
-  `price_type2` varchar(255) NOT NULL,
-  `price_quantity` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `itemprice`
---
-
-INSERT INTO `itemprice` (`price_id`, `price_image`, `price_name`, `price_type1`, `price_type2`, `price_quantity`) VALUES
-(1, 'BLK/SPANISH LATTE.png', 'Spanish Latte', '99', '149', 0),
-(2, 'BLK/WHITE CHOCO LATTE.png', 'White Choco Latte', '99', '149', 0),
-(3, 'BLK/MOCHA LATTE.png', 'Mocha Latte', '99', '149', 0),
-(4, 'BLK/CINNAMON BROWN LATTE.png', 'Cinnamon Brown Latte', '89', '139', 0),
-(5, 'BLK/CARAMEL VANILLA MACCHIATO.png', 'Caramel Vanilla Macchiato', '89', '139', 0),
-(6, 'BLK/CAFE LATTE.png', 'Cafe Latte', '99', '149', 0),
-(7, 'BLK/VANILLA CAFE LATTE.png', 'Vanilla Cafe Latte', '69', '119', 0),
-(8, 'BLK/HAZELNUT CAFE LATTE.png', 'Hazelnut Cafe Latte', '69', '119', 0),
-(9, 'BLK/SALTED CARAMEL LATTE.png', 'Salted Caramel Latte', '89', '139', 0),
-(10, 'BLK/AMERICANO.png', 'Americano', '69', '139', 0),
-(11, 'BLK/MIDNIGHT CHERRY.png', 'Midnight Cherry', '79', '119', 0),
-(12, 'BLK/ESPRESSO CLOUD.png', 'Espresso Cloud', '69', '129', 0),
-(13, 'BLK/HOT BREWED COFFEE.png', 'Hot Brewed Coffee', '69', '109', 0),
-(14, 'BLK/COLD BREW.png', 'Cold Brew', '69', '109', 0),
-(18, 'BLK/ICED COFFEE.png', 'Iced Coffee ', '69', '119', 0),
-(19, 'BLK/VANILLA.png', 'Vanilla', '79', '129', 0),
-(20, 'BLK/HAZELNUT.png', 'Hazelnut', '79', '129', 0),
-(21, 'BLK/CARAMEL.png', 'Caramel', '79', '129', 0),
-(22, 'BLK/HOT CHOCOLATE.png', 'Hot Chocolate', '79', '129', 0),
-(23, 'BLK/TRIPLE CHOCOLATE.png', 'Triple Chocolate', '89', '139', 0),
-(24, 'BLK/PINK PARADISE.png', 'Pink Paradise', '79', '129', 0),
-(25, 'BLK/TROPICAL CLOUD.png', 'Tropical Cloud', '79', '129', 0),
-(26, 'BLK/CARAMEL CANDY.png', 'Caramel Candy', '79', '129', 0),
-(27, 'BLK/DARK BERRY.png', 'Dark Berry', '99', '149', 0),
-(28, 'BLK/VANILLA MCDREAMY.png', 'Vanilla McDreamy', '79', '129', 0),
-(29, 'BLK/CHAMOMILE TEA.png', 'Chamomile Tea', '69', '119', 0),
-(30, 'BLK/PURPLE BLOOM.png', 'Purple Bloom', '69', '119', 0),
-(31, 'BLK/LAVENDER TEA.png', 'Lavender Tea', '69', '119', 0),
-(32, 'BLK/PURE GREEN TEA.png', 'Pure Green Tea', '69', '119', 0),
-(33, 'BLK/ENGLISH BREAKFAST TEA.png', 'English Breakfast Tea', '69', '119', 0),
-(34, 'BLK/WILD BERRY.png', 'Wild Berry', '69', '119', 0),
-(35, 'BLK/HIBISCUS TEA.png', 'Hibiscus Tea', '79', '129', 0),
-(36, 'BLK/STRAWBERRY AND MANGO.png', 'Strawberry And Mango', '99', '149', 0),
-(37, 'BLK/MATCHA MANGO.png', 'Matcha Mango', '99', '149', 0),
-(38, 'BLK/NUTTY GREEN TEA.png', 'Nutty Green Tea', '99', '149', 0),
-(39, 'BLK/VANILLA KISSED MATCHA.png', 'Vanilla Kissed Matcha', '99', '149', 0),
-(40, 'BLK/SPICY MATCHA.png', 'Spicy Matcha', '99', '149', 0),
-(41, 'BLK/TITA MAGGIE\'S MATCHA.png', 'Tita Maggie\'s Matcha', '99', '149', 0),
-(42, 'BLK/WHITEOUT MATCHA.png', 'Whiteout Matcha', '99', '149', 0),
-(43, 'BLK/MATCHA LATTE.png', 'Matcha Latte', '99', '149', 0),
-(44, 'BLK/DIRTY MATCHA.png', 'Dirty Matcha', '109', '159', 0),
-(45, 'BLK/GREEN AND SWEET.png', 'Green And Sweet', '109', '159', 0),
-(46, 'BLK/ICHIGO MATCHA.png', 'Ichigo Matcha', '109', '159', 0),
-(47, 'BLK/MANGO JUICE.png', 'Mango Juice', '69', '99', 0),
-(48, 'BLK/CUCUMBER JUICE.png', 'Cucumber Juice', '69', '99', 0),
-(49, 'BLK/ICED TEA.png', 'Iced Tea', '69', '99', 0),
-(50, 'BLK/COCA-COLA ZERO.png', 'Coca-Cola Zero', '0', '69', 0),
-(51, 'BLK/REGULAR COCA-COLA.png', 'Regular Coca-Cola', '0', '69', 0),
-(52, 'BLK/PEPSI.png', 'Pepsi', '0', '69', 0),
-(53, 'BLK/POFFERTJES.png', 'Poffertjes', '120', '0', 0),
-(54, 'BLK/FLUFFY PANCAKES.png', 'Fluffy Pancakes', '139', '169', 0),
-(55, 'BLK/FRENCH TOAST.png', 'French Toast', '139', '0', 0),
-(56, 'BLK/CLASSIC WAFFLES.png', 'Classic Waffles', '129', '0', 0),
-(57, 'BLK/MARGA\'S FAVE.png', 'Marga\'s Fave', '250', '0', 0),
-(58, 'BLK/BREAKFAST PLATTER.png', 'Breakfast Platter', '250', '0', 0),
-(59, 'BLK/CHICKSILOG.png', 'Chicksilog', '180', '340', 0),
-(60, 'BLK/TAPSILOG.png', 'Tapsilog', '180', '340', 0),
-(61, 'BLK/LUNCHEONSILOG.png', 'Luncheonsilog', '180', '340', 0),
-(62, 'BLK/BACSILOG.png', 'Bacsilog', '180', '340', 0),
-(63, 'BLK/CARROT RICE.png', 'Carrot Rice', '35', '0', 0),
-(64, 'BLK/PLAIN RICE.png', 'Plain Rice', '25', '0', 0),
-(65, 'BLK/CHICKEN PESTO.png', 'Chicken Pesto', '260', '380', 0),
-(66, 'BLK/GOURMET TUYO.png', 'Gourmet Tuyo', '245', '360', 0),
-(67, 'BLK/AGLIO OLIO.png', 'Aglio Olio', '245', '360', 0),
-(68, 'BLK/GARLIC BREAD.png', 'Garlic Bread', '35', '0', 0),
-(69, 'BLK/CHICKEN POPPERS.png', 'Chicken Poppers', '95', '250', 0),
-(70, 'BLK/CHICKEN TERIYAKI.png', 'Chicken Teriyaki', '100', '250', 0),
-(71, 'BLK/PORK TERIYAKI.png', 'Pork Teriyaki', '160', '250', 0),
-(72, 'BLK/CHICKEN KATSUDON.png', 'Chicken Katsudon', '110', '250', 0),
-(73, 'BLK/PORK KATSUDON.png', 'Pork Katsudon', '170', '320', 0),
-(74, 'BLK/FRIES.png', 'Fries', '99', '250', 0),
-(75, 'BLK/FRIES BEFORE GUYS.png', 'Fries Before Guys', '0', '250', 0),
-(76, 'BLK/MOZZARELLA BALLS.png', 'Mozzarella Balls', '0', '115', 0),
-(77, 'BLK/CHICKEN BALLS.png', 'Chicken Balls', '190', '350', 0),
-(78, 'BLK/CHICKEN BALLS MIX.png', 'Chicken Balls Mix', '0', '250', 0),
-(79, 'BLK/CALAMARI.png', 'Calamari', '0', '250', 0),
-(80, 'BLK/CALAMARI MIX.png', 'Calamari Mix', '0', '250', 0),
-(81, 'BLK/HASHBROWN.png', 'Hashbrown', '65', '0', 0),
-(82, 'BLK/CLUBHOUSE SANDWICH.png', 'Clubhouse Sandwich', '120', '200', 0),
-(84, 'BLK/PAIN AU CHOCOLAT.png', 'Pain Au Chocolat', '90', '150', 0),
-(85, 'BLK/BUTTER CROISSANT.png', 'Butter Croissant', '90', '150', 0),
-(86, 'BLK/CROISSANWICH.png', 'Croissanwich', '120', '190', 0),
-(87, 'BLK/PLAIN.png', 'Plain', '100', '140', 0),
-(88, 'BLK/STRAWBERRY FIELD.png', 'Strawberry Field', '120', '150', 0),
-(89, 'BLK/MANGO TANGO.png', 'Mango Tango', '120', '150', 0),
-(90, 'BLK/CHOCO TRUFFLE.png', 'Choco Truffle', '120', '150', 0);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `menucategory`
 --
 
@@ -562,13 +435,14 @@ INSERT INTO `menucategory` (`product_id`, `product_category`, `product_image`, `
 (2, 'Drinks', 'BLK/COLD BREW.png', 'Brew', 'Iced/Hot'),
 (3, 'Drinks', 'BLK/PINK PARADISE.png', 'Non Coffee And Tea', ''),
 (4, 'Drinks', 'BLK/MATCHA MANGO.png', 'Matcha', ''),
-(5, 'Drinks', 'BLK/NONE.png', 'Beverages', ''),
+(5, 'Drinks', './BLK/REGULAR COCA-COLA.png', 'Beverages', ''),
 (6, 'Foods', 'BLK/FRENCH TOAST.png', 'All Day Breakfast', ''),
-(7, 'Foods', 'BLK/NONE.png', 'Silog', ''),
+(7, 'Foods', 'BLK/LUNCHEONSILOG.png', 'Silog', ''),
 (8, 'Foods', 'BLK/AGLIO OLIO.png', 'Pasta', ''),
 (9, 'Foods', 'BLK/CHICKEN KATSUDON.png', 'Bargain Bites', ''),
-(10, 'Foods', 'BLK/NONE.png', 'Sides And Nibbles', ''),
-(11, 'Foods', 'BLK/CLUBHOUSE SANDWICH.png', 'Carbs And Caffeine', '');
+(10, 'Foods', 'BLK/CHICKEN BALLS MIX.png', 'Sides And Nibbles', ''),
+(11, 'Foods', './BLK/CLUBHOUSE SANDWICH.png', 'Carbs And Caffeine', ''),
+(35, '', './BLK/lor.jpg', '', '');
 
 -- --------------------------------------------------------
 
@@ -629,7 +503,7 @@ INSERT INTO `menuitems` (`item_id`, `item_category`, `item_image`, `item_name`, 
 (35, 'Matcha', 'BLK/NUTTY GREEN TEA.png', 'Nutty Green Tea', NULL, 99, 149, 1),
 (36, 'Matcha', 'BLK/VANILLA KISSED MATCHA.png', 'Vanilla Kissed Matcha', NULL, 99, 149, 1),
 (37, 'Matcha', 'BLK/SPICY MATCHA.png', 'Spicy Matcha', NULL, 99, 149, 1),
-(38, 'Matcha', 'BLK/TITA MAGGIE\'S MATCHA.png', 'Tita Maggie\'s Matcha', NULL, 99, 149, 1),
+(38, 'Matcha', 'BLK/TITA MAGGIES MATCHA.png', 'Tita Maggie\'s Matcha', NULL, 99, 149, 1),
 (39, 'Matcha', 'BLK/WHITEOUT MATCHA.png', 'Whiteout Matcha', NULL, 99, 149, 1),
 (40, 'Matcha', 'BLK/MATCHA LATTE.png', 'Matcha Latte', NULL, 99, 149, 1),
 (41, 'Matcha', 'BLK/DIRTY MATCHA.png', 'Dirty Matcha', NULL, 109, 159, 1),
@@ -645,7 +519,7 @@ INSERT INTO `menuitems` (`item_id`, `item_category`, `item_image`, `item_name`, 
 (51, 'All Day Breakfast', 'BLK/FLUFFY PANCAKES.png', 'Fluffy Pancakes', NULL, 139, 169, 1),
 (52, 'All Day Breakfast', 'BLK/FRENCH TOAST.png', 'French Toast', NULL, 139, 0, 1),
 (53, 'All Day Breakfast', 'BLK/CLASSIC WAFFLES.png', 'Classic Waffles', NULL, 129, 0, 1),
-(54, 'All Day Breakfast', 'BLK/MARGA\'S FAVE.png', 'Marga\'s Fave', NULL, 250, 0, 1),
+(54, 'All Day Breakfast', 'BLK/MARGAS FAVE.png', 'Marga\'s Fave', NULL, 250, 0, 1),
 (55, 'All Day Breakfast', 'BLK/BREAKFAST PLATTER.png', 'Breakfast Platter', NULL, 250, 0, 1),
 (56, 'Silog', 'BLK/CHICKSILOG.png', 'Chicksilog', NULL, 180, 340, 1),
 (57, 'Silog', 'BLK/TAPSILOG.png', 'Tapsilog', NULL, 180, 340, 1),
@@ -654,7 +528,7 @@ INSERT INTO `menuitems` (`item_id`, `item_category`, `item_image`, `item_name`, 
 (60, 'Silog', 'BLK/CARROT RICE.png', 'Carrot Rice', NULL, 35, 0, 1),
 (61, 'Silog', 'BLK/PLAIN RICE.png', 'Plain Rice', NULL, 25, 0, 1),
 (62, 'Pasta', 'BLK/CHICKEN PESTO.png', 'Chicken Pesto', NULL, 260, 380, 1),
-(63, 'Pasta', 'BLK/GOURMET TUYO.png', 'Gourmet Tuyo', NULL, 245, 360, 1),
+(63, 'Pasta', 'BLK/GOURMENT TUYO.png', 'Gourment Tuyo', NULL, 245, 360, 1),
 (64, 'Pasta', 'BLK/AGLIO OLIO.png', 'Aglio Olio', NULL, 245, 360, 1),
 (65, 'Pasta', 'BLK/GARLIC BREAD.png', 'Garlic Bread', NULL, 35, 0, 1),
 (66, 'Bargain Bites', 'BLK/CHICKEN POPPERS.png', 'Chicken Poppers', NULL, 95, 250, 1),
@@ -676,9 +550,47 @@ INSERT INTO `menuitems` (`item_id`, `item_category`, `item_image`, `item_name`, 
 (82, 'Carbs And Nibbles', 'BLK/CROISSANWICH.png', 'Croissanwich', NULL, 120, 190, 1),
 (83, 'Carbs And Caffeine', 'BLK/PLAIN.png', 'Plain', NULL, 100, 140, 1),
 (84, 'Carbs And Caffeine', 'BLK/STRAWBERRY FIELD.png', 'Strawberry Field', NULL, 120, 150, 1),
-(85, 'Carbs And Caffeine', 'BLK/STRAWBERRY FIELD.png', 'Strawberry Field', NULL, 120, 150, 1),
 (86, 'Carbs And Caffeine', 'BLK/MANGO TANGO.png', 'Mango Tango', NULL, 120, 150, 1),
 (87, 'Carbs And Caffeine', 'BLK/CHOCO TRUFFLE.png', 'Choco Truffle', NULL, 120, 150, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orderdetails`
+--
+
+CREATE TABLE `orderdetails` (
+  `username` varchar(255) NOT NULL,
+  `shipping_fee` int(255) NOT NULL,
+  `payment_method` varchar(255) NOT NULL,
+  `total_payment` int(255) NOT NULL,
+  `full_name` varchar(255) NOT NULL,
+  `phone_number` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `receipt` varchar(255) DEFAULT NULL,
+  `gcash_number` int(255) DEFAULT NULL,
+  `reference_number` varchar(255) DEFAULT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'Pending'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orderitems`
+--
+
+CREATE TABLE `orderitems` (
+  `username` varchar(255) NOT NULL,
+  `item_id` varchar(255) NOT NULL,
+  `item_category` varchar(255) NOT NULL,
+  `item_image` varchar(255) NOT NULL,
+  `item_name` varchar(255) NOT NULL,
+  `item_customization` varchar(255) NOT NULL,
+  `item_price` int(255) NOT NULL,
+  `item_quantity` int(255) NOT NULL,
+  `item_totalprice` int(255) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'Pending'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -768,7 +680,8 @@ CREATE TABLE `useraccounts` (
 
 INSERT INTO `useraccounts` (`email`, `status`, `username`, `password`, `token`) VALUES
 ('meinardsantoss@gmail.com', 'admin', 'admin', 'admin123', ''),
-('elor.k12150411@umak.edu.ph', 'staff', 'eric', 'lor123', '');
+('elor.k12150411@umak.edu.ph', 'staff', 'eric', 'lor123', ''),
+('louigiecads@gmail.com', 'customer', 'louie', 'louie123', '');
 
 --
 -- Indexes for dumped tables
@@ -864,12 +777,6 @@ ALTER TABLE `galleryvideo`
 --
 ALTER TABLE `homecontent`
   ADD PRIMARY KEY (`content_id`);
-
---
--- Indexes for table `itemprice`
---
-ALTER TABLE `itemprice`
-  ADD PRIMARY KEY (`price_id`);
 
 --
 -- Indexes for table `menucategory`
@@ -993,13 +900,13 @@ ALTER TABLE `galleryvideo`
 -- AUTO_INCREMENT for table `menucategory`
 --
 ALTER TABLE `menucategory`
-  MODIFY `product_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `product_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `menuitems`
 --
 ALTER TABLE `menuitems`
-  MODIFY `item_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `item_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 
 --
 -- AUTO_INCREMENT for table `packagecontactcontent`

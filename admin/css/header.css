@@ -95,6 +95,11 @@ nav .fa-cart-shopping{
   margin-top: 4px;
   /* margin-right: 10em; */
 }
+.fa-circle-user{
+  font-size: 29px;
+  margin-top: 4px;
+}
+
 #Cart span {
   display: flex;
   position: absolute;
@@ -102,11 +107,11 @@ nav .fa-cart-shopping{
   align-items: center;
   height: 21px;
   width: 21px;
-  font: 500 12px League Spartan;
+  font: 700 14px League Spartan;
   border-radius: 100%;
   background-color: wheat;
-  top: 60px;
-  right: 5.8em;
+  top: 35px;
+  right: 70px;
 }
 
 nav .user-icon{

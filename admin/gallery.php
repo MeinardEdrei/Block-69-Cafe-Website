@@ -18,10 +18,10 @@ update_image_when_submit($conn);
 update_sectionContent_when_submit($conn);
 update_video_when_submit($conn);
 
-
 include_once('partials/header.php');
 ?>
 
+<title>Gallery</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="../admin/css/gallery.css">

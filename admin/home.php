@@ -17,6 +17,7 @@
   }
 ?>
 
+<title>BLOCK 69 Café</title>
 <?php include('partials/header.php'); ?>
 <link rel="stylesheet" href="css/home.css">
 <link rel="icon" href="icons/newlogo-light.png">

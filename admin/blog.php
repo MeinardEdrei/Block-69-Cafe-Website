@@ -8,11 +8,15 @@ $conn = get_connection();
 $user_data = check_login($conn);
 $user_type = check_usertype($conn);
 
+if(!($user_type == 'admin' || $user_type == 'staff')){
+    echo '<div id="preloader"></div>';
+}
+
 include_once('partials/header.php');
 
 ?>
 <!-- ############################################################################################### -->
-
+<title>Blog</title>
 <!--START: ADDING OF BLOG CONTENT-->
     <?php
 

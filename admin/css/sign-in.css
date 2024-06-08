@@ -45,7 +45,7 @@
   margin-top: 1em;
 }
 
-.sign-in-container .form-container input[type="text"] {
+.sign-in-container .form-container input[type="text"], input[type="password"] {
   padding: 10px;
   font-size: 22px;
   width: 19em;
@@ -55,11 +55,11 @@
   box-shadow: 0 0 0 0 rgba(97, 97, 97, 0); /* Initial shadow with no spread */
 }
 
-.sign-in-container .form-container input[type="text"]:focus {
+.sign-in-container .form-container input[type="text"]:focus, input[type="password"]:focus {
   box-shadow: 0 0 0 5px rgba(94, 94, 94, 0.1); /* Add shadow effect on click with a small spread radius */
 }
 
-.sign-in-container input[type="text"]:focus::placeholder{
+.sign-in-container input[type="text"]:focus::placeholder,  input[type="password"]:focus::placeholder{
   transition: .2s ease;
   color: transparent;
 }

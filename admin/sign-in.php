@@ -22,7 +22,7 @@ include './partials/header.php';
     <div class="form-container">
       <p>*indicates required field</p>
       <input type="text" name="username" placeholder="* Username" required autocomplete="off">
-      <input type="text" name="password" placeholder="* Password" required autocomplete="off">
+      <input type="password" name="password" placeholder="* Password" required autocomplete="off">
       <a href="forgot-password.php" class="forgot-info">Forgot your password?</a>
       <input type="submit" name="submit" value="Sign in">
     </div>
