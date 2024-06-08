@@ -1,3 +1,25 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+    .edit-message {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 20px;
+        border: 2px solid #000;
+        border-radius: 0;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        width: 220px;
+        height: 50px;
+        font-family: 'League Spartan';
+    }
+</style>
 <?php
 
 include './config/connect.php';
@@ -53,7 +75,15 @@ $contents = get_content($conn);
         $contentBasicCoffee = 'basic_coffee' . $content['id'];
         $contentBasicNonCoffee = 'basic_noncoffee' . $content['id'];
 
-      
+        if ($contentEdit) {
+            echo '
+                  <div class="edit-message" id="notifAddContent">
+                    Edit Content Successfully!
+                  </div>
+            ';
+        }
+
+
         echo '
     
         <!-- Start of 1st Modal -->
@@ -71,7 +101,7 @@ $contents = get_content($conn);
             <input class="saveBtn" type="submit" name="submit">
           </div>
         </div>
-        <!-- End of 1st Modal -->'; 
+        <!-- End of 1st Modal -->';
 
         echo '
         <div class="container-heading">';
@@ -110,12 +140,12 @@ $contents = get_content($conn);
             <textarea class="edit-content" name="' . $contentBooking . '">' . $content['content_booking'] . '</textarea>
             <p class="modal-caption2">INCLUSION LIST</p>
             <textarea class="edit-content" name="' . $listInclusion . '">' . $content['list_inclusion'] . '</textarea>
-            <p class="modal-caption2">INCLUSION LIST</p>
+            <p class="modal-caption2">ADDITIONAL LIST</p>
             <textarea class="edit-content" name="' . $listAdditional . '">' . $content['list_additional'] . '</textarea>
             <input class="saveBtn" type="submit" name="submit">
           </div>
         </div>
-        <!-- End of Modal2 -->'; 
+        <!-- End of Modal2 -->';
 
 
         echo '
@@ -130,7 +160,7 @@ $contents = get_content($conn);
         }
         echo '
         <div class="content1-inclusion">
-        <div class="title-booking">
+        <div class="title-booking" style="margin-top: 30px;">
         ' . $content['title_booking'] . '
         </div>
         <div class="content-booking">
@@ -177,24 +207,24 @@ $contents = get_content($conn);
       <div class="modal-content3">
         <div class="close3"><i class="fa-solid fa-square-xmark" style="color: black;"></i></div>
         <!-- Content for modal3 -->
-        <p class="modal-title2">TITLE</p>
+        <p class="modal-title3">TITLE</p>
         <textarea class="edit-content" name="' . $contentTitleFlavors . '">' . $content['title_flavors'] . '</textarea>
-        <p class="modal-caption2">CAPTION</p>
+        <p class="modal-title3">TITLE</p>
         <textarea class="edit-content" name="' . $contentTitlePremium . '">' . $content['title_premium'] . '</textarea>
-        <p class="modal-caption2">INCLUSION LIST</p>
+        <p class="modal-title3">TITLE</p>
         <textarea class="edit-content" name="' . $contentTitleBasic . '">' . $content['title_basic'] . '</textarea>
         <input class="saveBtn" type="submit" name="submit">
       </div>
     </div>
-    <!-- End of Modal3 -->'; 
-    
+    <!-- End of Modal3 -->';
+
         echo '
     <!-- Start of Modal4 -->
     <div class="bg-modal4 ' . $modalClass4 . '">
       <div class="modal-content4">
         <div class="close4"><i class="fa-solid fa-square-xmark" style="color: black;"></i></div>
         <!-- Content for modal4 -->
-        <p class="modal-title2">TITLE</p>
+        <p class="modal-title2">CONTENT</p>
         <textarea class="edit-content" name="' . $contentPremiumCoffee . '">' . $content['premium_coffee'] . '</textarea>
         <input class="saveBtn" type="submit" name="submit">
       </div>
@@ -207,7 +237,7 @@ $contents = get_content($conn);
       <div class="modal-content5">
         <div class="close5"><i class="fa-solid fa-square-xmark" style="color: black;"></i></div>
         <!-- Content for modal5 -->
-        <p class="modal-title2">TITLE</p>
+        <p class="modal-title2">CONTENT</p>
         <textarea class="edit-content" name="' . $contentPremiumNonCoffee . '">' . $content['premium_noncoffee'] . '</textarea>
         <input class="saveBtn" type="submit" name="submit">
       </div>
@@ -220,7 +250,7 @@ $contents = get_content($conn);
       <div class="modal-content6">
         <div class="close6"><i class="fa-solid fa-square-xmark" style="color: black;"></i></div>
         <!-- Content for modal6 -->
-        <p class="modal-title2">TITLE</p>
+        <p class="modal-title2">CONTENT</p>
         <textarea class="edit-content" name="' . $contentBasicCoffee . '">' . $content['basic_coffee'] . '</textarea>
         <input class="saveBtn" type="submit" name="submit">
       </div>
@@ -233,12 +263,12 @@ $contents = get_content($conn);
       <div class="modal-content7">
         <div class="close7"><i class="fa-solid fa-square-xmark" style="color: #ffffff;"></i></div>
         <!-- Content for modal7 -->
-        <p class="modal-title2">TITLE</p>
+        <p class="modal-title2">CONTENT</p>
         <textarea class="edit-content" name="' . $contentBasicNonCoffee . '">' . $content['basic_noncoffee'] . '</textarea>
         <input class="saveBtn" type="submit" name="submit">
       </div>
     </div>
-    <!-- End of Modal7 -->'; 
+    <!-- End of Modal7 -->';
 
 
         echo '
@@ -253,7 +283,7 @@ $contents = get_content($conn);
         }
         echo '
     
-        <div class="our-flavors"> ' . $content['title_flavors'] . '</div>
+        <div class="our-flavors" style="margin-top: 30px";> ' . $content['title_flavors'] . '</div>
         <div class="title-premium">' . $content['title_premium'] . '</div>';
         echo '
         <table class="styled-table">
@@ -280,9 +310,9 @@ $contents = get_content($conn);
                 </td>
             </tr>
         </table>';
-        
+
         echo '<div class="title-premium">' . $content['title_basic'] . '</div>';
-        
+
         echo '
         <table class="styled-table">
             <tr>
@@ -309,7 +339,6 @@ $contents = get_content($conn);
             </tr>
         </table>
         </div>';
-        
     }
     ?>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -345,6 +374,13 @@ $contents = get_content($conn);
         var contentCaptionBasicCoffee = "";
         var contentCaptionNonBasicCoffee = "";
 
+        document.addEventListener('DOMContentLoaded', function() {
+            var editMessage = document.getElementById('notifAddContent');
+
+            setTimeout(function() {
+                editMessage.style.display = 'none';
+            }, 2000);
+        });
 
         function handleEditButtonClick(Id) {
             modalClass = "modal-" + Id;

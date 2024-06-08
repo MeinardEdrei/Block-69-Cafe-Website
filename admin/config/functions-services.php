@@ -1,52 +1,100 @@
 <?php
 include_once './config/connect.php';
 $conn = get_connection();
+$contentEdit = false;
 
 if (isset($_POST['submit'])) {
-    //Fetch Data
     $id = mysqli_real_escape_string($conn, $_POST['id']);
-    $title_barservices = mysqli_real_escape_string($conn, $_POST['title_barservices' . $id]);
-    $content_barservices = mysqli_real_escape_string($conn, $_POST['content_barservices' . $id]);
-    $image_barservices = 'image_barservices' . $id;
-    if (isset($_FILES[$image_barservices])) {
-        $file_name = $_FILES[$image_barservices]['name'];
-        $temp_name = $_FILES[$image_barservices]['tmp_name'];
-        $folder = './Images/' . $file_name;
+    
+    // Check if the content with the given id exists in the database
+    $check_query = "SELECT * FROM barservicescontent WHERE id = '$id'";
+    $check_result = mysqli_query($conn, $check_query);
 
-        if (move_uploaded_file($temp_name, $folder)) {
-            if (isset($_POST['id'])) {
-                //Check Content Existence
-                $check_query = "SELECT * FROM barservicescontent WHERE id = '$id'";
-                $check_result = mysqli_query($conn, $check_query);
+    if (mysqli_num_rows($check_result) > 0) {
+        // Initialize an empty array to store the fields to be updated
+        $fields_to_update = array();
 
-                if (mysqli_num_rows($check_result) > 0) {
-                    $query = "UPDATE barservicescontent SET title_barservices = '$title_barservices', content_barservices = 
-                    '$content_barservices', image_barservices = '$folder' WHERE id = '$id'";
-                } else {
-                    $query = "INSERT INTO barservicscontent (id, title_barservices, content_barservices, image_barservices) 
-                    VALUES ('$id', '$title_barservices', '$content_barservices', '$folder')";
-                }
+        // Fetching and escaping data
+        $title_barservices = mysqli_real_escape_string($conn, $_POST['title_barservices' . $id]);
+        $content_barservices = mysqli_real_escape_string($conn, $_POST['content_barservices' . $id]);
 
-                if (mysqli_query($conn, $query)) {
-                    echo '
-                  <script>
-                      if ( window.history.replaceState ) {
-                          window.history.replaceState( null, null, window.location.href );
-                      }
-                  </script>
-                  ';
-                } else {
-                    echo "Error: " . $query . "<br>" . mysqli_error($conn);
-                }
-            } else {
-                echo "Error: content_id is not set.";
+        // Check each field and add it to the $fields_to_update array if it has been edited
+        $fields_to_update[] = "title_barservices = '$title_barservices'";
+        $fields_to_update[] = "content_barservices = '$content_barservices'";
+
+        // Image handling
+        $image_barservices = 'image_barservices' . $id;
+        if (isset($_FILES[$image_barservices]['name'])) {
+            $file_name = $_FILES[$image_barservices]['name'];
+            $temp_name = $_FILES[$image_barservices]['tmp_name'];
+            $folder = './Images/' . $file_name;
+            if (move_uploaded_file($temp_name, $folder)) {
+                $fields_to_update[] = "image_barservices = '$folder'";
             }
         }
+
+        if (isset($_POST['title_booking' . $id])) {
+            $title_booking_value = mysqli_real_escape_string($conn, $_POST['title_booking' . $id]);
+            $fields_to_update[] = "title_booking = '$title_booking_value'";
+        }
+        if (isset($_POST['content_booking' . $id])) {
+            $content_booking_value = mysqli_real_escape_string($conn, $_POST['content_booking' . $id]);
+            $fields_to_update[] = "content_booking = '$content_booking_value'";
+        }
+        if (isset($_POST['list_inclusion' . $id])) {
+            $list_inclusion_value = mysqli_real_escape_string($conn, $_POST['list_inclusion' . $id]);
+            $fields_to_update[] = "list_inclusion = '$list_inclusion_value'";
+        }
+        if (isset($_POST['list_additional' . $id])) {
+            $list_additional_value = mysqli_real_escape_string($conn, $_POST['list_additional' . $id]);
+            $fields_to_update[] = "list_additional = '$list_additional_value'";
+        }
+
+        if (isset($_POST['title_flavors' . $id])) {
+            $title_flavors_value = mysqli_real_escape_string($conn, $_POST['title_flavors' . $id]);
+            $fields_to_update[] = "title_flavors = '$title_flavors_value'";
+        }
+        if (isset($_POST['title_premium' . $id])) {
+            $title_premium_value = mysqli_real_escape_string($conn, $_POST['title_premium' . $id]);
+            $fields_to_update[] = "title_premium = '$title_premium_value'";
+        }
+        if (isset($_POST['title_basic' . $id])) {
+            $title_basic_value = mysqli_real_escape_string($conn, $_POST['title_basic' . $id]);
+            $fields_to_update[] = "title_basic = '$title_basic_value'";
+        }
+
+        if (isset($_POST['premium_coffee' . $id])) {
+            $premium_coffee_value = mysqli_real_escape_string($conn, $_POST['premium_coffee' . $id]);
+            $fields_to_update[] = "premium_coffee = '$premium_coffee_value'";
+        }
+        if (isset($_POST['premium_noncoffee' . $id])) {
+            $premium_noncoffee_value = mysqli_real_escape_string($conn, $_POST['premium_noncoffee' . $id]);
+            $fields_to_update[] = "premium_noncoffee = '$premium_noncoffee_value'";
+        }
+        if (isset($_POST['basic_coffee' . $id])) {
+            $basic_coffee_value = mysqli_real_escape_string($conn, $_POST['basic_coffee' . $id]);
+            $fields_to_update[] = "basic_coffee = '$basic_coffee_value'";
+        }
+        if (isset($_POST['basic_noncoffee' . $id])) {
+            $basic_noncoffee_value = mysqli_real_escape_string($conn, $_POST['basic_noncoffee' . $id]);
+            $fields_to_update[] = "basic_noncoffee = '$basic_noncoffee_value'";
+        }
+
+        $query = "UPDATE barservicescontent SET " . implode(', ', $fields_to_update) . " WHERE id = '$id'";
+
+        if (mysqli_query($conn, $query)) {
+            echo '<script>if (window.history.replaceState) { window.history.replaceState(null, null, window.location.href); }</script>';
+            $contentEdit = true;
+        } else {
+            echo "Error: " . $query . "<br>" . mysqli_error($conn);
+        }
+    } else {
+        echo "Error: Content with ID $id not found.";
     }
 }
 
+
 if (isset($_POST['submit'])) {
-    // Fetch Data
     $id = mysqli_real_escape_string($conn, $_POST['id']);
     $title_booking = mysqli_real_escape_string($conn, $_POST['title_booking' . $id]);
     $content_booking = mysqli_real_escape_string($conn, $_POST['content_booking' . $id]);
@@ -54,7 +102,6 @@ if (isset($_POST['submit'])) {
     $list_additional = mysqli_real_escape_string($conn, $_POST['list_additional' . $id]);
 
     if (isset($_POST['id'])) {
-        // Check Content Existence
         $check_query = "SELECT * FROM barservicescontent WHERE id = '$id'";
         $check_result = mysqli_query($conn, $check_query);
 
@@ -83,7 +130,6 @@ if (isset($_POST['submit'])) {
 }
 
 if (isset($_POST['submit'])) {
-    // Fetch Data
     $id = mysqli_real_escape_string($conn, $_POST['id']);
     $title_flavors = mysqli_real_escape_string($conn, $_POST['title_flavors' . $id]);
     $title_premium = mysqli_real_escape_string($conn, $_POST['title_premium' . $id]);
