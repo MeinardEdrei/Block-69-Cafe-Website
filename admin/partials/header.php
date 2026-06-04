@@ -62,16 +62,16 @@
   </a>
   <nav id="mainNav">
     <ul>
-      <img id="logoButton" src="Icons/newlogo.png" onclick="window.location.href='../admin/home.php'" style="cursor: pointer;" alt="">
+      <img id="logoButton" src="Icons/newlogo.png" onclick="window.location.href='/home.php'" style="cursor: pointer;" alt="">
       <input type="checkbox" id="check">
       <label for="check" class="checkbtn">
         <i class="fa fa-bars"></i>
       </label>
       
-      <li><a href="../admin/menu.php">MENU</a></li>
-      <li><a href="../admin/blog.php">BLOG</a></li>
-      <li><a href="../admin/services.php">SERVICES</a></li>
-      <li><a href="../admin/about.php">ABOUT US</a></li>
+      <li><a href="/menu.php">MENU</a></li>
+      <li><a href="/blog.php">BLOG</a></li>
+      <li><a href="/services.php">SERVICES</a></li>
+      <li><a href="/about.php">ABOUT US</a></li>
 
     </ul>
     <div class="buttons">

@@ -1,23 +1,17 @@
 <?php
 
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
+$dotenv->load();
+
 function get_connection(): mysqli {
-  try {
-    $dbhost = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "block69cafe";
-
-    $conn = mysqli_connect($dbhost, $username, $password, $dbname);
-
-    // if ($conn->connect_error) {
-    //   die("Connection failed: " . $conn->connect_error);
-    // }
-
-    return $conn;
-  } catch (\Throwable $th) {
-     //   die("Connection failed: " . $conn->connect_error);
-    echo "POGI NI ERIC";
-    exit;
-  }
+  $conn = mysqli_connect(
+    $_ENV['DB_HOST'],
+    $_ENV['DB_USERNAME'],
+    $_ENV['DB_PASSWORD'],
+    $_ENV['DB_NAME']
+  );
+  return $conn;
 }
 ?>

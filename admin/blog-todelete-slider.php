@@ -1,10 +1,10 @@
 <link rel="stylesheet" href="css/blog-allpost.css">
 
 <?php
-$host = "localhost";
-$user = "root";
-$password = "";
-$database = "block69cafe";
+$host = $_ENV["DB_HOST"];
+$user = $_ENV["DB_USERNAME"];
+$password = $_ENV["DB_PASSWORD"];
+$database = $_ENV["DB_NAME"];
 $data = mysqli_connect($host, $user, $password, $database);
 
 if (isset($_GET['blogSliderID'])) {

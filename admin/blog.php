@@ -20,10 +20,10 @@ include_once('partials/header.php');
 <!--START: ADDING OF BLOG CONTENT-->
     <?php
 
-    $host = "localhost";
-    $user = "root";
-    $password = "";
-    $database = "block69cafe";
+    $host = $_ENV["DB_HOST"];
+    $user = $_ENV["DB_USERNAME"];
+    $password = $_ENV["DB_PASSWORD"];
+    $database = $_ENV["DB_NAME"];
 
     $data = mysqli_connect($host, $user, $password, $database);
 
@@ -144,7 +144,7 @@ include_once('partials/header.php');
 
 <!--START: IMAGE SLIDER-->
     <?php
-    $query = "SELECT * FROM blogslider ORDER BY blogIdNum ASC";
+    $query = "SELECT * FROM blogslider ORDER BY blogIDNum ASC";
     $result = mysqli_query($data, $query);
 
     if ($result) {

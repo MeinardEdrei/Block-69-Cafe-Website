@@ -5,10 +5,10 @@ session_start();
 include_once('partials/header.php');
 
 // Database connection
-$host = "localhost";
-$user = "root";
-$password = "";
-$database = "block69cafe";
+$host = $_ENV["DB_HOST"];
+$user = $_ENV["DB_USERNAME"];
+$password = $_ENV["DB_PASSWORD"];
+$database = $_ENV["DB_NAME"];
 
 $data = new mysqli($host, $user, $password, $database);
 
